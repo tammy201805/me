@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>UX&UI作品集 - 张晓迪</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        html, body {
+            font-family: Arial, sans-serif;
+            overflow-x: hidden;
+            width: 100%;
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background-color: white;
+            position: relative;
+        }
+        
+        body {
+            min-height: 100vh;
+            color: #779637;
+        }
+        
+        .hero-section {
+            /* background-color: #c0d6eb; */
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%
+        }
+        
+        .hero-content {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 10%;
+            background: linear-gradient(180deg, #82afd9 10%, #bed8eb 50%, #bed8eb 100%);
+            z-index: 2;
+        }
+        
+        .hero-content h1 {
+            font-size: 4rem;
+            font-weight: bold;
+            margin-top: 2rem;
+            margin-bottom: 0.5rem;
+            color: #ffffff;
+        }
+        
+        .hero-content .title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+        
+        .hero-content .contact-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .hero-content .contact-item {
+            font-size: 1.2rem;
+            color: #ffffff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        
+        .note {
+            position: absolute;
+            bottom: 1rem;
+            right: 10%;
+            font-size: 0.9rem;
+            color: white;
+            z-index: 1;
+        }
+        
+        .section {
+            height: auto;
+            display: block;
+            width: 100%;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .section img {
+            width: 100%;
+            height: auto;
+            display: block;
+            margin: 0;
+            padding: 0;
+        }
+        
+        .footer-section {
+            padding: 4rem 0;
+            width: 100%;
+            margin: 0;
+            overflow: hidden;
+        }
+        
+        .footer-content {
+            text-align: center;
+            padding: 0 10%;
+            box-sizing: border-box;
+            width: 100%;
+            max-width: 100%;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .footer-content .message,
+        .footer-content .contact-details {
+            margin-bottom: 2rem;
+        }
+        
+        .footer-content .message {
+            font-size: 1.5rem;
+            font-style: italic;
+            color: rgb(76, 84, 97);
+        }
+        
+        .footer-content .contact-details span {
+            color: rgb(2, 110, 249);
+            text-decoration: underline;
+            margin: 0 0.5rem;
+            cursor: pointer;
+        }
+        
+        .footer-content .disclaimer {
+            font-size: 0.9rem;
+            color: #666;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content .title {
+                font-size: 1.2rem;
+            }
+            
+            .hero-content .contact-item {
+                font-size: 1rem;
+            }
+            
+            .note {
+                font-size: 0.8rem;
+                bottom: 1rem;
+            }
+            
+            .footer-content .message {
+                font-size: 1.2rem;
+            }
+            
+            .footer-content .contact-details span {
+                font-size: 0.9rem;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content .title {
+                font-size: 1rem;
+            }
+            
+            .hero-content .contact-item {
+                font-size: 0.9rem;
+            }
+            
+            .note {
+                font-size: 0.7rem;
+                bottom: 0.5rem;
+            }
+            
+            .footer-content .message {
+                font-size: 1rem;
+            }
+            
+            .footer-content .contact-details span {
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <section class="hero-section">
+        <div class="hero-content">
+            <h1>张晓迪</h1>
+            <div class="title">用户体验设计师 作品集</div>
+            <div class="contact-info">
+                <div class="contact-item" onclick="copyToClipboard('18801613257')">18801613257</div>
+                <div class="contact-item" onclick="copyToClipboard('xiaodizhangssspu@163.com')">xiaodizhangssspu@163.com</div>
+            </div>
+        </div>
+        <div class="note">! 仅用于面试参考，勿作他用</div>
+    </section>
+    
+
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/LUX/LUX01.png" alt="LUX 01">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/LUX/LUX02.png" alt="LUX 02">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/LUX/LUX03.png" alt="LUX 03">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/LUX/LUX04.png" alt="LUX 04">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/LUX/LUX05.png" alt="LUX 05">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_2.png" alt="页面 2">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_3.png" alt="页面 3">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_4.png" alt="页面 4">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_5.png" alt="页面 5">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_6.png" alt="页面 6">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/BESTUNE/UI01.png" alt="BESTUNE UI 01">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/BESTUNE/UI02.png" alt="BESTUNE UI 02">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/BESTUNE/UI03.png" alt="BESTUNE UI 03">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/BESTUNE/UI04.png" alt="BESTUNE UI 04">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/BESTUNE/UI05.png" alt="BESTUNE UI 05">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/BESTUNE/UI06.png" alt="BESTUNE UI 06">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/BESTUNE/UI07.png" alt="BESTUNE UI 07">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/BESTUNE/UI08.png" alt="BESTUNE UI 08">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/BESTUNE/UI09.png" alt="BESTUNE UI 09">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/BESTUNE/UI10.png" alt="BESTUNE UI 10">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_13.png" alt="页面 13">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_14.png" alt="页面 14">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_15.png" alt="页面 15">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_16.png" alt="页面 16">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_17.png" alt="页面 17">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_18.png" alt="页面 18">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_19.png" alt="页面 19">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_20.png" alt="页面 20">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_21.png" alt="页面 21">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_22.png" alt="页面 22">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_23.png" alt="页面 23">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_24.png" alt="页面 24">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_25.png" alt="页面 25">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_26.png" alt="页面 26">        
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_27.png" alt="页面 27">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_28.png" alt="页面 28">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_29.png" alt="页面 29">
+    </section>
+    
+    <section class="section">
+        <img loading="lazy" src="src/design/page_30.png" alt="页面 30">
+    </section>
+    
+    <section class="footer-section">
+        <div class="footer-content">
+            <div class="message">「感谢您的浏览 · 期待与您对话」</div>
+            <div class="contact-details">
+                <span onclick="copyToClipboard('18801613257')">18801613257</span> / 
+                <span onclick="copyToClipboard('xiaodizhangssspu@163.com')">xiaodizhangssspu@163.com</span>
+            </div>
+            <div class="disclaimer">! 仅用于面试参考，勿作他用</div>
+        </div>
+    </section>
+    
+    <script>
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text)
+                .then(() => {
+                    console.log('已复制到剪贴板:', text);
+                })
+                .catch(err => {
+                    console.error('复制失败:', err);
+                });
+        }
+        
+        document.addEventListener('contextmenu', function(e) {
+            e.preventDefault();
+        });
+    </script>
+</body>
+</html>

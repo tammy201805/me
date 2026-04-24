@@ -1,0 +1,1817 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>张晓迪 - 产品经理 & 用户体验设计师</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;500&family=Space+Mono:wght@400;700&display=swap');
+
+    /* The Future (Geometric Modernist Fallback) */
+    .future-font {
+      font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+    
+    /* PP Neue Montreal Mono (Fallback) */
+    .mono-font {
+      font-family: "Space Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    }
+    
+    /* Together Tinted Shadow */
+    .together-shadow {
+      box-shadow: rgba(1, 1, 32, 0.1) 0px 4px 10px;
+    }
+
+    /* Typography Hierarchy (NO font-weight above 500) */
+    .text-display { font-size: 64px; font-weight: 500; line-height: 1.05; letter-spacing: -1.92px; }
+    .text-heading { font-size: 40px; font-weight: 500; line-height: 1.20; letter-spacing: -0.8px; }
+    .text-subheading { font-size: 28px; font-weight: 500; line-height: 1.15; letter-spacing: -0.42px; }
+    .text-feature { font-size: 22px; font-weight: 500; line-height: 1.15; letter-spacing: -0.22px; }
+    
+    .text-body-large { font-size: 18px; font-weight: 400; line-height: 1.30; letter-spacing: -0.18px; }
+    .text-body { font-size: 16px; font-weight: 400; line-height: 1.30; letter-spacing: -0.16px; }
+    
+    .mono-label { font-size: 16px; font-weight: 500; line-height: 1.00; letter-spacing: 0.08px; text-transform: uppercase; }
+    .mono-small { font-size: 11px; font-weight: 500; line-height: 1.20; letter-spacing: 0.06px; text-transform: uppercase; }
+    
+    /* Utility Colors */
+    .bg-midnight { background-color: #010120; }
+    .text-midnight { color: #010120; }
+    
+    .border-light { border: 1px solid rgba(0, 0, 0, 0.08); }
+    .border-dark-glass { border: 1px solid rgba(255, 255, 255, 0.12); }
+
+    /* Global styles */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      background-color: #ffffff;
+      color: #000000;
+      font-family: "Outfit", -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+    }
+
+    /* Selection */
+    ::selection {
+      background-color: #bdbbff;
+      color: #010120;
+    }
+
+    /* Container */
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    /* Navigation */
+    nav {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      z-index: 50;
+      background-color: transparent;
+    }
+
+    .nav-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      height: 80px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .nav-logo {
+      font-size: 20px;
+      font-weight: 500;
+      letter-spacing: -0.2px;
+      color: #010120;
+      margin-left: 8px;
+    }
+
+    .nav-loading {
+      width: 18px;
+      height: 16px;
+      --_g: no-repeat radial-gradient(farthest-side, #000 90%, #0000);
+      background:
+        var(--_g) 50%  0,
+        var(--_g) 0    100%,
+        var(--_g) 100% 100%;
+      background-size: 35% calc(35% * 1.154);
+      animation: l16 1s infinite;
+      margin-left: 0px;
+    }
+
+    @keyframes l16 {
+      50%, 100% { background-position: 100% 100%, 50% 0, 0 100%; }
+    }
+
+    .nav-left {
+      display: flex;
+      align-items: center;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .nav-link {
+      color: #010120;
+      opacity: 0.7;
+      text-decoration: none;
+      transition: opacity 0.3s ease;
+    }
+
+    .nav-link:hover {
+      opacity: 1;
+    }
+
+    .nav-button {
+      background-color: #010120;
+      color: #ffffff;
+      padding: 10px 16px;
+      border-radius: 4px;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .nav-button:hover {
+      background-color: #000000;
+    }
+
+    /* Hero Section */
+    header {
+      position: relative;
+      overflow: hidden;
+      background-color: #ffffff;
+      padding-top: 160px;
+      padding-bottom: 40px;
+    }
+
+    .hero-gradient-1 {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 800px;
+      height: 800px;
+      background: linear-gradient(to bottom right, rgba(239, 44, 193, 0.1), rgba(189, 187, 255, 0.2), rgba(252, 76, 2, 0.05));
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translateY(-33.33%) translateX(25%);
+      filter: blur(120px);
+    }
+
+    .hero-gradient-2 {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 600px;
+      height: 600px;
+      background: linear-gradient(to top right, rgba(189, 187, 255, 0.2), transparent);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translateY(33.33%) translateX(-25%);
+      filter: blur(100px);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-badge {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 24px;
+    }
+
+    .hero-badge-dot {
+      width: 8px;
+      height: 8px;
+      background-color: #ef2cc1;
+      border-radius: 2px;
+    }
+
+    .hero-badge-text {
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06px;
+      text-transform: uppercase;
+      color: #010120;
+      opacity: 0.5;
+    }
+
+    .hero-title {
+      font-size: 64px;
+      font-weight: 500;
+      line-height: 1.05;
+      letter-spacing: -1.92px;
+      color: #010120;
+      max-width: 900px;
+      margin-bottom: 32px;
+    }
+
+    .hero-description {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.18px;
+      color: #010120;
+      opacity: 0.7;
+      margin-bottom: 48px;
+      width: 100%;
+    }
+
+    /* Stats Bar */
+    .stats-bar {
+      display: flex;
+      flex-direction: column;
+      gap: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      padding-top: 32px;
+      margin-top: 64px;
+      width: 100%;
+    }
+
+    @media (min-width: 768px) {
+      .stats-bar {
+        flex-direction: row;
+      }
+    }
+
+    .stat-item {
+      flex: 1;
+    }
+
+    .stat-value {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.42px;
+      color: #010120;
+    }
+
+    .stat-label {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.16px;
+      color: #010120;
+      opacity: 0.6;
+      margin-top: 4px;
+    }
+
+    /* Experience Section */
+    .experience-section {
+      background-color: #ffffff;
+      padding: 120px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      position: relative;
+    }
+
+    .experience-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 64px;
+    }
+
+
+
+    .experience-list {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .experience-item {
+      background-color: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      padding: 32px;
+      box-shadow: rgba(1, 1, 32, 0.1) 0px 4px 10px;
+      transition: box-shadow 0.3s ease;
+    }
+
+    .experience-item:hover {
+      box-shadow: rgba(1, 1, 32, 0.15) 0px 8px 24px;
+    }
+
+    .experience-item-header {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .experience-item-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-start;
+      }
+    }
+
+    .experience-item-company {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.22px;
+      color: #010120;
+      margin-bottom: 4px;
+    }
+
+    .experience-item-role {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.16px;
+      color: #010120;
+      opacity: 0.8;
+    }
+
+    .experience-item-period {
+      background-color: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06px;
+      text-transform: uppercase;
+      color: #010120;
+      white-space: nowrap;
+      align-self: flex-start;
+    }
+
+    .experience-item-details {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .experience-item-detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.16px;
+      color: #010120;
+      opacity: 0.7;
+    }
+
+    .experience-item-detail-icon {
+      color: #bdbbff;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    /* Projects Section */
+    .projects-section {
+      background-color: #ffffff;
+      padding: 120px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .projects-gradient {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      width: 800px;
+      height: 800px;
+      background-color: rgba(189, 187, 255, 0.1);
+      border-radius: 50%;
+      pointer-events: none;
+      transform: translateX(-50%) translateY(-50%);
+      filter: blur(120px);
+    }
+
+    .projects-header {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+      margin-bottom: 80px;
+      position: relative;
+      z-index: 10;
+    }
+
+    @media (min-width: 768px) {
+      .projects-header {
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: flex-end;
+      }
+    }
+
+    .projects-header-left {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+    }
+
+    .projects-badge {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.08px;
+      text-transform: uppercase;
+      color: #ef2cc1;
+      margin-bottom: 16px;
+    }
+
+    .projects-title {
+      font-size: 40px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: -0.8px;
+      color: #010120;
+    }
+
+    .projects-description {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.16px;
+      color: #010120;
+      opacity: 0.7;
+      max-width: 400px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+      position: relative;
+      z-index: 10;
+    }
+
+    @media (min-width: 1024px) {
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .project-card {
+      background-color: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      padding: 40px;
+      box-shadow: rgba(1, 1, 32, 0.1) 0px 4px 10px;
+      transition: box-shadow 0.3s ease;
+      display: flex;
+      flex-direction: column;
+      height: 100%;
+    }
+
+    .project-card:hover {
+      box-shadow: rgba(1, 1, 32, 0.15) 0px 8px 24px;
+    }
+
+    .project-card-header {
+      margin-bottom: 32px;
+    }
+
+    .project-card-title-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 16px;
+      margin-bottom: 16px;
+    }
+
+    .project-card-title {
+      font-size: 28px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.42px;
+      color: #010120;
+    }
+
+    .project-card-icon {
+      color: #010120;
+      opacity: 0.2;
+      flex-shrink: 0;
+    }
+
+    .project-card-role {
+      display: inline-block;
+      background-color: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 2px 8px;
+      border-radius: 4px;
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06px;
+      text-transform: uppercase;
+      color: #010120;
+    }
+
+    .project-card-content {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .project-card-section {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-card-section-title {
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06px;
+      text-transform: uppercase;
+      color: #010120;
+      opacity: 0.5;
+      margin-bottom: 8px;
+    }
+
+    .project-card-section-content {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.16px;
+      color: #010120;
+      opacity: 0.9;
+    }
+
+    .project-card-execution {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-card-execution-item {
+      display: flex;
+      gap: 12px;
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.16px;
+      color: #010120;
+      opacity: 0.8;
+    }
+
+    .project-card-execution-item-dot {
+      color: #ef2cc1;
+      opacity: 0.6;
+    }
+
+    .project-card-achievements {
+      margin-top: 32px;
+      padding-top: 24px;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .project-card-achievements-title {
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06px;
+      text-transform: uppercase;
+      color: #fc4c02;
+      margin-bottom: 12px;
+    }
+
+    .project-card-achievements-list {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .project-card-achievement {
+      padding: 4px 10px;
+      background-color: rgba(252, 76, 2, 0.1);
+      border: 1px solid rgba(252, 76, 2, 0.2);
+      border-radius: 4px;
+      font-size: 16px;
+      font-weight: 500;
+      color: #fc4c02;
+      display: inline-block;
+      width: fit-content;
+    }
+
+    /* Capabilities Section */
+    .capabilities-section {
+      background-color: #ffffff;
+      padding: 120px 0;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .capabilities-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 80px;
+    }
+
+    @media (min-width: 1024px) {
+      .capabilities-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .capabilities-left {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+    }
+
+    .capabilities-title {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.08px;
+      text-transform: uppercase;
+      color: #010120;
+      margin-bottom: 32px;
+    }
+
+    .capabilities-cards {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 24px;
+    }
+
+    @media (min-width: 768px) {
+      .capabilities-cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .capability-card {
+      background-color: #ffffff;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      padding: 24px;
+      box-shadow: rgba(1, 1, 32, 0.1) 0px 4px 10px;
+    }
+
+    .capability-card-icon {
+      color: #ef2cc1;
+      margin-bottom: 16px;
+    }
+
+    .capability-card-title {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.22px;
+      color: #010120;
+      margin-bottom: 8px;
+    }
+
+    .capability-card-description {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.16px;
+      color: #010120;
+      opacity: 0.7;
+    }
+
+    .tech-stack {
+      margin-top: 40px;
+    }
+
+    .tech-stack-title {
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06px;
+      text-transform: uppercase;
+      color: #010120;
+      opacity: 0.5;
+      margin-bottom: 16px;
+    }
+
+    .tech-category {
+      margin-bottom: 24px;
+    }
+
+    .tech-category:last-child {
+      margin-bottom: 0;
+    }
+
+    .tech-category-title {
+      font-size: 14px;
+      font-weight: 600;
+      line-height: 1.3;
+      letter-spacing: -0.14px;
+      color: #010120;
+      margin-bottom: 12px;
+    }
+
+    .tech-stack-list {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tech-stack-item {
+      padding: 4px 12px;
+      background-color: rgba(0, 0, 0, 0.04);
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 4px;
+      font-size: 13.2px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06px;
+      text-transform: uppercase;
+      color: #010120;
+    }
+
+    /* Grid layout for multi-platform experience */
+    .grid {
+      display: grid;
+    }
+
+    .grid-cols-1 {
+      grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+
+    @media (min-width: 768px) {
+      .md\:grid-cols-2 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+    }
+
+    .gap-4 {
+      gap: 1rem;
+    }
+
+    .mt-4 {
+      margin-top: 1rem;
+    }
+
+    .mt-8 {
+      margin-top: 2rem;
+    }
+
+    .pt-6 {
+      padding-top: 1.5rem;
+    }
+
+    .border-t {
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .border-light {
+      border-color: rgba(0, 0, 0, 0.08);
+    }
+
+    /* Contact Information */
+    .contact-info {
+      margin-bottom: 2rem;
+    }
+
+    .contact-copy {
+      cursor: pointer;
+      text-decoration: underline;
+      text-underline-offset: 2px;
+      transition: opacity 0.2s;
+    }
+
+    .contact-copy:hover {
+      opacity: 0.7;
+    }
+
+    .contact-copy-tooltip {
+      position: fixed;
+      background-color: #010120;
+      color: #ffffff;
+      padding: 8px 12px;
+      border-radius: 4px;
+      font-size: 12px;
+      pointer-events: none;
+      opacity: 0;
+      transition: opacity 0.2s;
+      z-index: 1000;
+    }
+
+    .contact-copy-tooltip.show {
+      opacity: 1;
+    }
+
+    .flex {
+      display: flex;
+    }
+
+    .flex-wrap {
+      flex-wrap: wrap;
+    }
+
+    .gap-6 {
+      gap: 1.5rem;
+    }
+
+    .gap-2 {
+      gap: 0.5rem;
+    }
+
+    .items-center {
+      align-items: center;
+    }
+
+    .mb-8 {
+      margin-bottom: 2rem;
+    }
+
+    /* Background Section */
+    .background-section {
+      display: flex;
+      flex-direction: column;
+      gap: 48px;
+    }
+
+    .background-title {
+      font-size: 16px;
+      font-weight: 500;
+      line-height: 1;
+      letter-spacing: 0.08px;
+      text-transform: uppercase;
+      color: #010120;
+      margin-bottom: 32px;
+    }
+
+    .education-list {
+      display: flex;
+      flex-direction: column;
+      gap: 32px;
+    }
+
+    .education-item {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+    }
+
+    .education-school {
+      font-size: 22px;
+      font-weight: 500;
+      line-height: 1.15;
+      letter-spacing: -0.22px;
+      color: #010120;
+      margin-bottom: 4px;
+    }
+
+    .education-major {
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.16px;
+      color: #010120;
+      opacity: 0.8;
+    }
+
+    .education-degree {
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06px;
+      text-transform: uppercase;
+      color: #010120;
+      opacity: 0.5;
+      margin-top: 8px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #ffffff;
+      padding: 120px 0 60px;
+      text-align: center;
+      border-top: 1px solid rgba(0, 0, 0, 0.08);
+      overflow: hidden;
+    }
+
+    .footer-quote {
+      font-size: 18px;
+      font-weight: 400;
+      line-height: 1.3;
+      letter-spacing: -0.16px;
+      color: #010120;
+      opacity: 0.7;
+      max-width: 600px;
+      margin: 0 auto 80px;
+    }
+
+    .footer-wordmark {
+      font-size: 12vw;
+      font-weight: 500;
+      line-height: 0.8;
+      letter-spacing: -0.04em;
+      color: #010120;
+      opacity: 0.03;
+      white-space: nowrap;
+      user-select: none;
+      margin-bottom: 64px;
+    }
+
+    .footer-copyright {
+      font-size: 11px;
+      font-weight: 500;
+      line-height: 1.2;
+      letter-spacing: 0.06px;
+      text-transform: uppercase;
+      color: #010120;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+    <div id="copy-tooltip" class="contact-copy-tooltip">已复制</div>
+  <div class="min-h-screen bg-[#ffffff] text-[#000000] selection:bg-[#bdbbff] selection:text-[#010120]">
+    <div class="future-font">
+      <!-- Navigation -->
+      <nav class="absolute top-0 w-full z-50 bg-transparent">
+        <div class="container">
+          <div class="nav-content">
+              <div class="nav-left">
+                <div class="nav-loading"></div>
+                <div class="nav-logo">DESIGNING</div>
+              </div>
+              <div class="nav-links">
+              <a href="https://daizy2026.github.io/work/pm.html" target="_blank" class="nav-link text-body text-midnight hover:text-[#ef2cc1] transition-colors flex items-center gap-2">
+                产品经理作品集 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+              <a href="https://daizy2026.github.io/work/design.html" target="_blank" class="nav-button text-body flex items-center gap-2">
+                UX & UI 作品集 <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Hero Section (Light Zone) -->
+      <header class="relative overflow-hidden bg-[#ffffff] pt-[160px] pb-[120px]">
+        <!-- Abstract Painterly Gradients -->
+        <div class="hero-gradient-1"></div>
+        <div class="hero-gradient-2"></div>
+        
+        <div class="container">
+          <div class="hero-content">
+            <div class="hero-badge">
+              <div class="hero-badge-dot"></div>
+              <span class="hero-badge-text">产品经理 & 交互设计师</span>
+            </div>
+            
+            <h1 class="hero-title">
+              张晓迪
+            </h1>
+
+            <!-- Contact Information -->
+            <div class="contact-info mb-8">
+              <div class="flex flex-wrap gap-6">
+                <div class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                  <span class="contact-copy" onclick="copyToClipboard('18801613257', this)">18801613257</span>
+                </div>
+                <div class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                  <span class="contact-copy" onclick="copyToClipboard('xiaodizhangsspu@163.com', this)">xiaodizhangsspu@163.com</span>
+                </div>
+                
+                <div class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+                  <span>1992年7月</span>
+                </div>
+              </div>
+            </div>
+            
+            <p class="hero-description">
+              拥有 9 年⻋联⽹和互联⽹⾏业经验，具备从 0 到 1 的产品构建能力，擅长需求分析、产品规划和跨部门协作。在车联网、互联网领域有丰富的产品设计经验，能够将业务需求转化为具体的产品方案。注重数据驱动决策，通过优化产品提升用户体验和业务效率。具备跨端设计能力，能够覆盖APP、小程序、WEB、可穿戴设备等多种平台的产品设计。
+            </p>
+
+            <!-- Stats Bar -->
+            <div class="stats-bar">
+              <div class="stat-item">
+                <div class="stat-value">9<span class="text-[#fc4c02]">年</span></div>
+                <div class="stat-label">互联网与车联网行业经验</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">125<span class="text-[#ef2cc1]">%</span></div>
+                <div class="stat-label">测试效率提升 (Wiggler项目)</div>
+              </div>
+              <div class="stat-item">
+                <div class="stat-value">20<span class="text-[#fc4c02]">k+</span></div>
+                <div class="stat-label">小程序 3 个月注册用户</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Experience Section (Light Zone) -->
+      <section class="experience-section">
+        <div class="container">
+          <div class="experience-grid">
+            <div class="experience-list">
+              <!-- Experience Item 1 -->
+              <div class="experience-item">
+                <div class="experience-item-header">
+                  <div>
+                    <h3 class="experience-item-company">独立产品设计师 / 独立咨询师</h3>
+                  </div>
+                  <div class="experience-item-period">2023.10 — 至今</div>
+                </div>
+                
+                <div class="experience-item-details">
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span>为超过 <strong>5+</strong> 项目提供设计服务</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span>从 0 到 1 全栈设计开发 <strong>1</strong> 款小程序</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span>独立运营平台账号，开展 1 对 1 咨询，累计服务来访者 <strong>300+</strong>，完成案例 <strong>800+</strong></span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span>完成 <strong>10+</strong> 心理类专项训练，受训课时 <strong>472+</strong>，持续深化对个体的理解，培养用户洞察力</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span>获得心理咨询师证、社工证；上海交通大学相关专业研究生考试 <strong>372 分</strong></span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Experience Item 2 -->
+              <div class="experience-item">
+                <div class="experience-item-header">
+                  <div>
+                    <h3 class="experience-item-company">上海银基科技股份有限公司</h3>
+                    <p class="experience-item-role">产品经理 & 交互设计 & UI设计</p>
+                  </div>
+                  <div class="experience-item-period">2016.08 — 2023.06</div>
+                </div>
+                
+                <div class="experience-item-details">
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>产品规划：</strong>从0到1搭建标定产品Wiggler（APP&云端），制定产品路线图和迭代计划</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>需求管理：</strong>调研团队及车厂标定痛点，输出需求文档和用户故事</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>项目协调：</strong>组织跨部门评审，推动研发团队实现功能落地</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>运营管理：</strong>产品上线后对接维护45+标定车型的接入，建立标准化维护流程</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>数字钥匙项目：</strong>全流程主导数字钥匙微信小程序项目的产品设计及上线，根据数据及项目方需求持续迭代</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>设计输出：</strong>负责公司自有创新产品、ToC & ToB & 2B2C产品的UX及UI设计，输出视觉规范和设计系统</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>宣传物料：</strong>负责产出公司各类活动宣传物料</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Experience Item 3 -->
+              <div class="experience-item">
+                <div class="experience-item-header">
+                  <div>
+                    <h3 class="experience-item-company">上海云瓣网络科技有限公司</h3>
+                    <p class="experience-item-role">交互设计 & UI设计</p>
+                  </div>
+                  <div class="experience-item-period">2014.10 — 2016.06</div>
+                </div>
+                
+                <div class="experience-item-details">
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>项目经验：</strong>参与50+政务&校园项目，从0到1设计落地创意H5</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>需求分析：</strong>负责需求收集及分析、产品原型设计、UI及视觉设计、交互动效等</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>市场调研：</strong>跟进自有产品（校园+）的市场调研、竞品分析、需求分析、界面设计</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>视觉设计：</strong>负责项目方（政府、学校）视觉VI设计、公司线上线下活动物料设计</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Experience Item 4 -->
+              <div class="experience-item">
+                <div class="experience-item-header">
+                  <div>
+                    <h3 class="experience-item-company">上海迪康广告有限公司</h3>
+                    <p class="experience-item-role">平面设计</p>
+                  </div>
+                  <div class="experience-item-period">2014.06 — 2014.10</div>
+                </div>
+                
+                <div class="experience-item-details">
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>项目设计：</strong>负责欧莱雅美妆新品计划书项目的需求沟通、平面设计</span>
+                  </div>
+                  <div class="experience-item-detail">
+                    <div class="experience-item-detail-icon">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"/><path d="m12 5 7 7-7 7"/></svg>
+                    </div>
+                    <span><strong>视觉创意：</strong>负责美妆产品商业海报设计，支持3D设计师视觉创意设计</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Projects Section -->
+      <section class="projects-section">
+        <div class="container">
+          <div class="projects-header">
+            <div class="projects-header-left">
+              <div class="projects-badge">Deep Dive</div>
+              <h2 class="projects-title">部分项目经验</h2>
+            </div>
+          </div>
+
+          <div class="projects-grid">
+            <!-- Project 1 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">LUX测光仪（微信小程序）</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">产品设计 & 全栈开发</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    从 0 到 1 打造垂直领域工具类产品
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>需求挖掘：分析用户需求，定义产品功能</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>产品设计：负责产品的整体设计，包括交互和UI</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>全栈开发：完成小程序的开发和上线（AI协同）</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 2 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">Wiggler标定产品（APP端 & WEB端）</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">产品经理 & UI设计</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    优化标定流程，提升标定的精确性与效率
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>需求分析：调研团队及车厂标定痛点，输出PRD和产品路线图</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>产品设计：主导APP端及云端产品设计，输出设计方案</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>项目管理：组织跨部门评审，推动研发实现，确保项目按时上线</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>运营管理：建立标定车型接入标准流程，维护45+标定车型</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>物料设计：设计产品相关宣传物料</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card-achievements">
+                <div class="project-card-achievements-title">Key Impact</div>
+                <div class="project-card-achievements-list">
+                  <div class="project-card-achievement">标定车型45+、标定机型150+</div>
+                  <div class="project-card-achievement">整体标定效率平均提升约37%</div>
+                  <div class="project-card-achievement">整体测试效率平均提升约125%</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 3 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">吉利数字钥匙微信小程序</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">产品经理 & UI设计</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    降低使用门槛，扩大触达与分享。
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>需求沟通：与项目经理对齐业务目标，输出PRD</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>产品规划：完善v1.0产品功能</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>团队沟通：协调开发、测试团队，确保产品上线</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>文档制作：制作产品说明书并持续更新</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>数据驱动：根据产品指标数据，持续优化产品</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="project-card-achievements">
+                <div class="project-card-achievements-title">Key Impact</div>
+                <div class="project-card-achievements-list">
+                  <div class="project-card-achievement">上线3个月注册用户2w+</div>
+                  <div class="project-card-achievement">日活用户8k+</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 4 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">雷克萨斯 - 代客保养业务应用端</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">产品经理</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    优化代客保养业务流程，提升经销商服务效率 (v1.0.0)
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>业务流程梳理：分析现有代客保养流程，识别优化点</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>产品设计：输出产品原型和功能要件书</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 5 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">23+整车品牌APP数字钥匙模块</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">交互设计 & UI设计</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    为不同车企APP集成数字钥匙功能，统一用户体验（包括广汽、丰田、吉利等）
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>需求分析：与各车企团队沟通需求，分析功能使用场景</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>交互设计：定义跨端交互流程和UI规范</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 6 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">广汽丰田试乘试驾支付宝小程序</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">交互设计 & UI设计</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    简化试乘试驾预约流程，提升用户体验和转化率
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>交互设计：设计v1.0交互流程</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>界面设计：UI组件规范定义、UI出图</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>视觉设计：营销活动出图及H5开发</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 7 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">广汽埃安手表APP</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">交互设计 & UI设计</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    延伸用户使用场景，打造无缝使用体验
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>需求收集：与埃安团队沟通需求，理解智能手表使用场景</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>交互流程：设计适合小屏设备的交互流程</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>规范输出：制定手表APP的UI组件规范并输出设计稿</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 8 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">乘趣APP（v1.0）</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">交互设计 & UI设计</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    让手机成为车钥匙，提升用户使用粘性
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>需求沟通：与产品团队沟通核心功能和用户场景</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>用户研究：进行目标用户调研，了解用户需求和痛点</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>设计落地：定义交互流程及线框图，制定UI组件规范并输出设计稿</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 9 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">奔腾数字钥匙APP</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">交互设计 & UI设计</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    为车主提供便捷的手机车控服务
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>规范定义：制定APP的交互设计规范</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>原型设计：绘制低保真原型图（v1.0）</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>视觉落地：制定UI组件规范并输出设计稿</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Project 10 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">虚拟数字钥匙后台管理</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">交互设计 & UI设计</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    为管理员提供数字钥匙管理平台，提高管理效率
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>需求梳理：与后端团队沟通管理需求</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>交互设计：设计后台管理系统的交互流程及功能模块线框图</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>系统规范：建立后台管理系统的设计系统，制定UI组件规范并输出设计稿</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            
+            <!-- Project 11 -->
+            <div class="project-card">
+              <div class="project-card-header">
+                <div class="project-card-title-row">
+                  <h4 class="project-card-title">ReminderMe（网页&小程序）</h4>
+                  <div class="project-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 14h4"/><path d="M16 10h-4"/><path d="M10.5 7.5h3"/><path d="M16 14v4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v4"/><path d="M10 14h4"/></svg>
+                  </div>
+                </div>
+                <div class="project-card-role">产品经理 & 交互 & UI (v2.0)</div>
+              </div>
+
+              <div class="project-card-content">
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Objective</div>
+                  <p class="project-card-section-content">
+                    打造轻量级的日程规划产品，帮助用户更好的进行生活管理
+                  </p>
+                </div>
+
+                <div class="project-card-section">
+                  <div class="project-card-section-title">Execution</div>
+                  <div class="project-card-execution">
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>需求调研：进行用户调研了解使用习惯，并分析竞品优缺点</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>产品设计：构建信息架构，制作低保真原型</span>
+                    </div>
+                    <div class="project-card-execution-item">
+                      <span class="project-card-execution-item-dot">/</span>
+                      <span>设计迭代：定义UI组件输出设计稿，并负责产品的迭代更新</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+      <!-- Capabilities Section -->
+      <section class="capabilities-section">
+        <div class="container">
+          <div class="capabilities-grid">
+            <div class="capabilities-left">
+              <h2 class="capabilities-title">核心优势 & 专业技能</h2>
+              <div class="capabilities-cards">
+                <div class="capability-card">
+                  <div class="capability-card-icon">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M20 20C20.5523 20 21 19.5523 21 19C21 18.4477 20.5523 18 20 18C19.4477 18 19 18.4477 19 19C19 19.5523 19.4477 20 20 20ZM17 19C17 17.6938 17.8348 16.5825 19 16.1707V16C19 14.3431 17.6569 13 16 13C14.8744 13 13.8357 12.6281 13 12.0004L13 16.1707C14.1652 16.5825 15 17.6938 15 19C15 20.6569 13.6569 22 12 22C10.3431 22 9 20.6569 9 19C9 17.6938 9.83481 16.5825 11 16.1707L11 12.0004C10.1643 12.6281 9.12561 13 8 13C6.34315 13 5 14.3431 5 16V16.1707C6.16519 16.5825 7 17.6938 7 19C7 20.6569 5.65685 22 4 22C2.34315 22 1 20.6569 1 19C1 17.6938 1.83481 16.5825 3 16.1707V16C3 13.2386 5.23858 11 8 11C9.65685 11 11 9.65685 11 8V7.82929C9.83481 7.41746 9 6.30622 9 5C9 3.34315 10.3431 2 12 2C13.6569 2 15 3.34315 15 5C15 6.30622 14.1652 7.41746 13 7.82929V8C13 9.65685 14.3431 11 16 11C18.7614 11 21 13.2386 21 16V16.1707C22.1652 16.5825 23 17.6938 23 19C23 20.6569 21.6569 22 20 22C18.3431 22 17 20.6569 17 19ZM12 6C12.5523 6 13 5.55228 13 5C13 4.44772 12.5523 4 12 4C11.4477 4 11 4.44772 11 5C11 5.55228 11.4477 6 12 6ZM4 18C3.44772 18 3 18.4477 3 19C3 19.5523 3.44772 20 4 20C4.55228 20 5 19.5523 5 19C5 18.4477 4.55228 18 4 18ZM13 19C13 19.5523 12.5523 20 12 20C11.4477 20 11 19.5523 11 19C11 18.4477 11.4477 18 12 18C12.5523 18 13 18.4477 13 19Z" fill="currentColor"/></svg>
+                  </div>
+                  <h4 class="capability-card-title">全流程产品能力</h4>
+                  <p class="capability-card-description">从需求分析到产品上线的完整产品生命周期管理。</p>
+                </div>
+                <div class="capability-card">
+                  <div class="capability-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+                  </div>
+                  <h4 class="capability-card-title">跨端设计经验</h4>
+                  <p class="capability-card-description">覆盖APP、小程序、WEB、车载终端、智能手表等多端产品设计。</p>
+                </div>
+                <div class="capability-card">
+                  <div class="capability-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+                  </div>
+                  <h4 class="capability-card-title">数据驱动决策</h4>
+                  <p class="capability-card-description">基于数据优化产品，提升用户体验和业务效率。</p>
+                </div>
+                <div class="capability-card">
+                  <div class="capability-card-icon">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                  </div>
+                  <h4 class="capability-card-title">协作与行业深耕</h4>
+                  <p class="capability-card-description">擅长跨部门高效协作，在车联网、互联网、政务、校园等领域经验丰富。</p>
+                </div>
+              </div>
+
+              <div class="tech-stack">
+                <h3 class="tech-stack-title">专业技能</h3>
+                
+                <div class="tech-category">
+                  <h4 class="tech-category-title">产品核心技能</h4>
+                  <div class="tech-stack-list">
+                    <span class="tech-stack-item">需求分析</span>
+                    <span class="tech-stack-item">用户研究</span>
+                    <span class="tech-stack-item">产品规划</span>
+                    <span class="tech-stack-item">数据驱动</span>
+                    <span class="tech-stack-item">AI协同</span>
+                    <span class="tech-stack-item">用户体验设计</span>
+                    <span class="tech-stack-item">交互设计</span>
+                  </div>
+                </div>
+
+                <div class="tech-category">
+                  <h4 class="tech-category-title">产品工具</h4>
+                  <div class="tech-stack-list">
+                    <span class="tech-stack-item">Axure</span>
+                    <span class="tech-stack-item">Figma</span>
+                    <span class="tech-stack-item">Sketch</span>
+                    <span class="tech-stack-item">Adobe XD</span>
+                  </div>
+                </div>
+
+                <div class="tech-category">
+                  <h4 class="tech-category-title">设计工具</h4>
+                  <div class="tech-stack-list">
+                    <span class="tech-stack-item">PS (Photoshop)</span>
+                    <span class="tech-stack-item">AI (Illustrator)</span>
+                    <span class="tech-stack-item">AE (After Effects)</span>
+                  </div>
+                </div>
+
+                <div class="tech-category">
+                  <h4 class="tech-category-title">技术理解</h4>
+                  <div class="tech-stack-list">
+                    <span class="tech-stack-item">Python</span>
+                    <span class="tech-stack-item">HTML</span>
+                    <span class="tech-stack-item">CSS</span>
+                    <span class="tech-stack-item">Charles</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="background-section">
+              <h2 class="background-title">教育背景</h2>
+              
+              <div class="education-list">
+                <div class="education-item">
+                  <p class="education-school">上海第二工业大学</p>
+                  <p class="education-major">工业设计</p>
+                  <p class="education-degree">全日制本科 - 2014届</p>
+                </div>
+                <div class="education-item">
+                  <p class="education-school">华东师范大学</p>
+                  <p class="education-major">应用心理学</p>
+                  <p class="education-degree">2017级（肄业）</p>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+      <footer>
+        <div class="container">
+          <p class="footer-quote">
+            懂心理，会产品。​ 擅长把深层的用户洞察转化为数字系统。
+          </p>
+          
+          <!-- Massive wordmark -->
+          <div class="footer-wordmark">
+            持续设计
+          </div>
+          
+          <div class="footer-copyright">
+            © 2026 ZHANG XIAODI • Designing the Future We Want
+          </div>
+        </div>
+      </footer>
+
+    </div>
+  </div>
+  <script>
+    function copyToClipboard(text, element) {
+      navigator.clipboard.writeText(text).then(function() {
+        var tooltip = document.getElementById('copy-tooltip');
+        var rect = element.getBoundingClientRect();
+        tooltip.style.left = rect.left + (rect.width / 2) - 30 + 'px';
+        tooltip.style.top = rect.top - 40 + 'px';
+        tooltip.classList.add('show');
+        setTimeout(function() {
+          tooltip.classList.remove('show');
+        }, 1500);
+      }, function(err) {
+        console.error('复制失败: ', err);
+      });
+    }
+  </script>
+</body>
+</html>
