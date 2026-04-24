@@ -4,6 +4,42 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>张晓迪 - 产品经理作品集</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                        mono: ['Space Mono', 'monospace'],
+                    },
+                    colors: {
+                        cloud: {
+                            pink: '#ef2cc1',
+                            lavender: '#bdbbff',
+                            orange: '#fc4c02',
+                            midnight: '#010120'
+                        }
+                    },
+                    boxShadow: {
+                        'tech': '0 4px 24px rgba(1, 1, 32, 0.04)',
+                        'tech-hover': '0 24px 48px -12px rgba(1, 1, 32, 0.12)',
+                    },
+                    letterSpacing: {
+                        'tighter-extreme': '-0.04em',
+                        'widest-tag': '0.08em',
+                    }
+                }
+            }
+        }
+    </script>
+
     <style>
         * {
             margin: 0;
@@ -15,7 +51,6 @@
             font-family: Arial, sans-serif;
             overflow-x: hidden;
             width: 100%;
-            height: 100%;
             margin: 0;
             padding: 0;
             background-color: white;
@@ -24,75 +59,50 @@
         
         body {
             min-height: 100vh;
+            overflow-y: auto;
+            margin: 0;
+            padding: 0;
         }
         
         .hero-section {
+            background: linear-gradient(to bottom right, rgba(239, 44, 193, 0.1), rgba(189, 187, 255, 0.2), rgba(252, 76, 2, 0.05));
             position: relative;
             width: 100%;
-            padding-bottom: 56.25%;
             margin: 0;
-            overflow: hidden;
-            background: url('src/pm/bg_compressed.png') center/cover no-repeat;
-        }
-        
-        .hero-section::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-        }
-        
-        .hero-content {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
+            padding: 0;
             display: flex;
-            flex-direction: column;
+            align-items: center;
             justify-content: center;
-            padding: 10%;
-            background: linear-gradient(180deg, #82afd9 10%, #bed8eb 50%, #bed8eb 100%);
+        }
+
+        .hero-content {
+            width: 100%;
+            
+            padding: 30px 20px;
             color: white;
             z-index: 2;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
-        
-        .hero-content h1 {
-            font-size: 4rem;
-            font-weight: bold;
-            margin-top: 2rem;
-            margin-bottom: 0.5rem;
-        }
-        
-        .hero-content .title {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-        }
-        
-        .hero-content .contact-info {
+
+        #canvasContainer {
+            height: 100%;
+            width: 100%;
             display: flex;
             flex-direction: column;
-            gap: 0.5rem;
+            border: 1px solid #82afd9;
         }
-        
-        .hero-content .contact-item {
-            font-size: 1.2rem;
-            color: #ffffff;
-            text-decoration: underline;
-            cursor: pointer;
-        }
-        
+
         .note {
-            position: absolute;
-            bottom: 1rem;
-            right: 10%;
+            position: relative;
+            text-align: right;
             font-size: 0.9rem;
-            color: white;
+            color: rgba(1, 1, 32, 0.4);
             z-index: 1;
+            margin: 0;
         }
-        
+
         .section {
             height: auto;
             display: block;
@@ -100,7 +110,7 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .section img {
             width: 100%;
             height: auto;
@@ -108,61 +118,220 @@
             margin: 0;
             padding: 0;
         }
-        
+
         .footer-section {
-            padding: 4rem 0;
+            padding: 1rem 2rem;
             width: 100%;
             margin: 0;
             overflow: hidden;
+            background-color: white;
+            z-index: 1000;
+            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.05);
         }
-        
-        .footer-content {
-            text-align: center;
-            padding: 0 10%;
-            box-sizing: border-box;
-            width: 100%;
-            max-width: 100%;
+
+        .footer-section.fixed {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.05);
+        }
+
+        .toast {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 14px;
+            height: 36px;
+            line-height: 20px;
+            z-index: 99999;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .toast.show {
+            opacity: 1;
+        }
+
+        main {
+            flex: 1;
             display: flex;
             flex-direction: column;
+            justify-content: center;
+            padding: 0 1rem;
+        }
+
+        #heroText {
+            margin-bottom: 1rem;
+        }
+
+        #heroText h1 {
+            font-size: clamp(2rem, 8vw, 4rem);
+            margin-bottom: 0.5rem;
+        }
+
+        #heroText h2 {
+            font-size: clamp(1.2rem, 5vw, 2.5rem);
+            margin-bottom: 1.5rem;
+        }
+
+        #heroText p {
+            font-size: clamp(0.8rem, 3vw, 1rem);
+            margin-bottom: 1rem;
+        }
+
+        .grid {
+            max-width: 100%;
+            margin-top: 1rem;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .glass-card {
+            padding: 1rem;
+            background: rgba(255, 255, 255, 0.7);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(1, 1, 32, 0.06);
+        }
+
+        .glass-card .text-base {
+            font-size: clamp(1rem, 4vw, 1.2rem);
+        }
+
+        .glass-card .text-sm {
+            font-size: clamp(0.9rem, 3vw, 1rem);
+        }
+
+        .copy-label {
+            font-size: clamp(0.7rem, 2.5vw, 0.8rem);
+        }
+
+        .text-cloud-pink {
+            color: rgb(239, 44, 193);
+        }
+
+        header {
+            padding: 1rem 1.5rem;
+        }
+
+        footer {
+            padding: 1rem 1.5rem 0 1.5rem;
+        }
+
+        @media (max-width: 768px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+            }
+            
+            .glass-card {
+                padding: 0.8rem;
+            }
+            
+            #heroText h1 {
+                font-size: clamp(1.8rem, 7vw, 3rem);
+            }
+            
+            #heroText h2 {
+                font-size: clamp(1rem, 4vw, 2rem);
+            }
+        }
+
+        @media (max-width: 480px) {
+            .grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.6rem;
+            }
+            
+            .glass-card {
+                padding: 0.6rem;
+            }
+            
+            #heroText h1 {
+                font-size: clamp(1.5rem, 6vw, 2.5rem);
+            }
+            
+            #heroText h2 {
+                font-size: clamp(0.9rem, 3vw, 1.5rem);
+            }
+            
+            .hero-content {
+                padding: 20px 15px;
+            }
+            
+            main {
+                padding: 0 0.8rem;
+            }
+            
+            header {
+                padding: 0.8rem 1rem;
+            }
+            
+            footer {
+                padding: 0.8rem 1rem 0 1rem;
+            }
+        }
+
+        .footer-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            max-width: 1200px;
+            margin: 0 auto;
+            width: 100%;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .footer-content .message, 
+        .footer-content .contact-details {
+            margin-bottom: 0;
+            white-space: nowrap;
+        }
+
+        .footer-content .message {
+            font-size: 1rem;
+            font-style: italic;
+            color: rgb(1, 1, 32);
+            letter-spacing: 0px;
+        }
+
+        .footer-content .contact-details {
+            display: flex;
             align-items: center;
         }
-        
-        .footer-content .message,
-        .footer-content .contact-details {
-            margin-bottom: 2rem;
-        }
-        
-        .footer-content .message {
-            font-size: 1.5rem;
-            font-style: italic;
-            color: rgb(76, 84, 97);
-        }
-        
+
         .footer-content .contact-details span {
-            color: rgb(2, 110, 249);
+            color: rgb(1, 1, 32);
             text-decoration: underline;
             margin: 0 0.5rem;
             cursor: pointer;
+            font-size: 16px;
+            font-family: Arial, sans-serif;
+            font-weight: 500;
+            letter-spacing: -0.02em;
         }
-        
+
+        .footer-content .contact-details span:nth-child(1) {
+            font-size: 16px;
+            height: 24px;
+        }
+
         .footer-content .disclaimer {
-            font-size: 0.9rem;
-            color: #666;
+            font-size: 0.8rem;
+            color: rgba(1, 1, 32, 0.4);
+            white-space: nowrap;
         }
-        
+
         @media (max-width: 768px) {
-            .hero-content h1 {
-                font-size: 2.5rem;
-            }
-            
-            .hero-content .title {
-                font-size: 1.2rem;
-            }
-            
-            .hero-content .contact-item {
-                font-size: 1rem;
-            }
-            
             .note {
                 font-size: 0.8rem;
                 bottom: 1rem;
@@ -176,20 +345,8 @@
                 font-size: 0.9rem;
             }
         }
-        
+
         @media (max-width: 480px) {
-            .hero-content h1 {
-                font-size: 2rem;
-            }
-            
-            .hero-content .title {
-                font-size: 1rem;
-            }
-            
-            .hero-content .contact-item {
-                font-size: 0.9rem;
-            }
-            
             .note {
                 font-size: 0.7rem;
                 bottom: 0.5rem;
@@ -203,19 +360,78 @@
                 font-size: 0.8rem;
             }
         }
+
     </style>
 </head>
 <body>
     <section class="hero-section">
         <div class="hero-content">
-            <h1>张晓迪</h1>
-            <div class="title">产品经理 作品集</div>
-            <div class="contact-info">
-                <div class="contact-item" onclick="copyToClipboard('18801613257')">18801613257</div>
-                <div class="contact-item" onclick="copyToClipboard('xiaodizhangssspu@163.com')">xiaodizhangssspu@163.com</div>
+            <div id="canvasContainer" class="w-full h-full relative border border-[#82afd9] m-0 p-0">
+                <header class="w-full p-8 md:p-12 flex justify-between items-center relative z-10">
+                    <div class="flex items-center gap-2">
+                        <div class="w-2 h-2 bg-cloud-midnight rounded-sm"></div>
+                        <span class="font-mono text-xs uppercase tracking-widest-tag text-cloud-midnight/60">System Ready</span>
+                    </div>
+                    <div class="font-mono text-xs uppercase tracking-widest-tag text-cloud-midnight/60">
+                        Based in China
+                    </div>
+                </header>
+
+                <main class="flex-1 flex flex-col justify-center px-8 md:px-12 lg:px-24 max-w-7xl mx-auto w-full relative z-10">
+                    
+                    <div class="max-w-4xl relative" id="heroText">
+                        <p class="font-mono text-sm md:text-base text-cloud-pink uppercase tracking-widest-tag mb-6">
+                            User Experience Designer
+                        </p>
+                        
+                        <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter-extreme leading-[0.9] text-cloud-midnight mb-6">
+                            张晓迪
+                        </h1>
+                        <h2 class="text-3xl md:text-5xl font-medium tracking-tighter-extreme text-cloud-midnight/40 mb-12">
+                            作品集 Portfolio.
+                        </h2>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mt-4">
+                        
+                        <div class="glass-card rounded shadow-tech hover:shadow-tech-hover p-3 flex flex-col justify-between group cursor-pointer" onclick="copyToClipboard('18801613257', this, 'text-cloud-pink', false)">
+                            <div class="flex justify-between items-start mb-3 pointer-events-none">
+                                <span class="copy-label font-mono text-xs uppercase tracking-widest-tag text-cloud-midnight/50 group-hover:text-cloud-pink transition-colors">Phone</span>
+                                <svg class="copy-icon w-4 h-4 text-cloud-midnight/30 group-hover:text-cloud-pink transform group-hover:scale-110 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-base md:text-lg font-medium tracking-tighter-extreme text-cloud-midnight pointer-events-none">
+                                18801613257
+                            </div>
+                        </div>
+
+                        <div class="glass-card rounded shadow-tech hover:shadow-tech-hover p-3 flex flex-col justify-between group cursor-pointer" onclick="copyToClipboard('xiaodizhangssspu@163.com', this, 'text-cloud-pink', false)">
+                            <div class="flex justify-between items-start mb-3 pointer-events-none">
+                                <span class="copy-label font-mono text-xs uppercase tracking-widest-tag text-cloud-midnight/50 group-hover:text-cloud-pink transition-colors">Email</span>
+                                <svg class="copy-icon w-4 h-4 text-cloud-midnight/30 group-hover:text-cloud-pink transform group-hover:scale-110 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                                </svg>
+                            </div>
+                            <div class="text-base md:text-lg font-medium tracking-tighter-extreme text-cloud-midnight pointer-events-none">
+                                xiaodizhangssspu<br/><span class="text-cloud-midnight/40 text-sm">@163.com</span>
+                            </div>
+                        </div>
+
+                    </div>
+                </main>
+
+                <footer class="w-full p-8 md:p-12 pb-0 flex justify-between items-end relative z-10">
+                    <div class="font-mono text-xs text-cloud-midnight/40 tracking-widest-tag uppercase">
+                        Interactive Resume <br>
+                        © 2026 Edition
+                    </div>
+                    
+                    <div class="note">! 仅用于面试参考，勿作他用</div>
+                </footer>
+
             </div>
         </div>
-        <div class="note">! 仅用于面试参考，勿作他用</div>
     </section>
     
     <section class="section">
@@ -258,27 +474,110 @@
         <div class="footer-content">
             <div class="message">「感谢您的浏览 · 期待与您对话」</div>
             <div class="contact-details">
-                <span onclick="copyToClipboard('18801613257')">18801613257</span> / 
-                <span onclick="copyToClipboard('xiaodizhangssspu@163.com')">xiaodizhangssspu@163.com</span>
+                <span onclick="copyToClipboard('18801613257', this)">18801613257</span> / 
+                <span onclick="copyToClipboard('xiaodizhangssspu@163.com', this)">xiaodizhangssspu@163.com</span>
             </div>
-            <div class="disclaimer">! 仅用于面试参考，勿作他用</div>
         </div>
     </section>
+
+    <div class="toast" id="toast">已复制</div>
     
     <script>
-        function copyToClipboard(text) {
-            navigator.clipboard.writeText(text)
-                .then(() => {
-                    console.log('已复制到剪贴板:', text);
-                })
-                .catch(err => {
-                    console.error('复制失败:', err);
-                });
+        function copyToClipboard(text, element, highlightColorClass, showToast = true) {
+            const textArea = document.createElement("textarea");
+            textArea.value = text;
+            textArea.style.position = "fixed";
+            textArea.style.opacity = "0";
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            
+            try {
+                document.execCommand('copy');
+                
+                // 根据参数决定是否显示toast提示
+                if (showToast) {
+                    const toast = document.getElementById('toast');
+                    
+                    // 计算点击元素的位置
+                    if (element) {
+                        const rect = element.getBoundingClientRect();
+                        const toastHeight = 36;
+                        
+                        // 设置toast位置在点击元素的正上方 10px
+                        toast.style.top = `${rect.top - toastHeight - 10}px`;
+                        toast.style.left = `${rect.left + (rect.width) / 2}px`;
+                        toast.style.transform = 'translate(-50%, 0)';
+                    } else {
+                        // 如果没有元素，默认显示在页面中心
+                        toast.style.top = '50%';
+                        toast.style.left = '50%';
+                        toast.style.transform = 'translate(-50%, -50%)';
+                    }
+                    
+                    toast.classList.add('show');
+                    setTimeout(() => {
+                        toast.classList.remove('show');
+                    }, 2000);
+                }
+                
+                if (element && highlightColorClass) {
+                    const label = element.querySelector('.copy-label');
+                    const icon = element.querySelector('.copy-icon');
+                    const originalText = label.innerText;
+                    const originalSVG = icon.innerHTML;
+                    
+                    label.innerText = '已复制';
+                    label.classList.add(highlightColorClass);
+                    icon.innerHTML = '<path stroke-linecap="square" stroke-linejoin="miter" stroke-width="2" d="M5 13l4 4L19 7"></path>';
+                    icon.classList.add(highlightColorClass);
+
+                    setTimeout(() => {
+                        label.innerText = originalText;
+                        label.classList.remove(highlightColorClass);
+                        icon.innerHTML = originalSVG;
+                        icon.classList.remove(highlightColorClass);
+                    }, 2000);
+                }
+                
+            } catch (err) {
+                console.error('复制失败', err);
+            }
+            
+            document.body.removeChild(textArea);
         }
         
         document.addEventListener('contextmenu', function(e) {
             e.preventDefault();
         });
+        
+        // 确保DOM加载完成后执行
+        document.addEventListener('DOMContentLoaded', function() {
+            // 初始化时检查一次
+            checkFooterPosition();
+            
+            // 监听滚动事件
+            window.addEventListener('scroll', checkFooterPosition);
+        });
+        
+        function checkFooterPosition() {
+            const heroSection = document.querySelector('.hero-section');
+            const footerSection = document.querySelector('.footer-section');
+            
+            if (heroSection && footerSection) {
+                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
+                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+                const windowHeight = window.innerHeight;
+                const documentHeight = document.documentElement.scrollHeight;
+                
+                // 简化逻辑：当滚动超过首页底部时，固定页脚
+                if (scrollTop > heroBottom - 100) { // 添加一些缓冲区域
+                    footerSection.classList.add('fixed');
+                } else {
+                    footerSection.classList.remove('fixed');
+                }
+            }
+        }
     </script>
 </body>
 </html>
