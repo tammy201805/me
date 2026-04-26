@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -47,20 +48,24 @@
             box-sizing: border-box;
         }
         
-        html, body {
-            font-family: Arial, sans-serif;
-            overflow-x: hidden;
-            width: 100%;
+        /* 基础网页布局 */
+        body, html {
             margin: 0;
             padding: 0;
-            background-color: white;
-            position: relative;
+            width: 100%;
+            height: 100%;
+            background-color: #f8f8f8;
+            font-family: 'Outfit', -apple-system, sans-serif;
+            overflow-x: hidden;
+            overflow-y: auto;
         }
         
-        body {
+        /* 页面容器 */
+        .page-wrapper {
+            width: 100%;
             min-height: 100vh;
-            color: #000000;
-            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
         }
         
         .hero-section {
@@ -248,16 +253,26 @@
             z-index: 1000;
             box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.05);
             position: relative;
+            transition: box-shadow 0.2s ease;
         }
 
-        .footer-section.fixed {
+        .footer-section.sticky {
             position: fixed;
             bottom: 0;
             left: 0;
             right: 0;
             z-index: 9999;
             background-color: white !important;
-            box-shadow: 0px -1px 0px 0px rgba(0, 0, 0, 0.05);
+            box-shadow: 0px -2px 12px rgba(0, 0, 0, 0.08);
+        }
+
+        /* 页脚固定时，为内容区预留等高空间防止跳动 */
+        .footer-spacer {
+            width: 100%;
+            display: none;
+        }
+        .footer-spacer.active {
+            display: block;
         }
 
         .toast {
@@ -386,82 +401,296 @@
                 font-size: 0.8rem;
             }
         }
+        
+        /* 设计师封面样式 */
+        :root {
+            --accent-pink: #ef2cc1;
+            --accent-purple: #bdbbff;
+            --accent-orange: #fc4c02;
+            --tech-blue: #010120;
+        }
+
+        /* 响应式画布容器 */
+        .page-container {
+            position: relative;
+            width: 100%;
+            height: auto;
+            background: #ffffff;
+            overflow: hidden;
+            box-shadow: 0 0 1px rgba(0,0,0,0.1); /* 极细边框模拟纸张边缘 */
+        }
+        
+        /* 小屏设备适配 */
+        @media screen and (max-width: 768px) {
+            .page-container {
+                height: auto;
+            }
+            
+            .main-title {
+                font-size: clamp(30px, 10vw, 80px);
+            }
+            
+            .description {
+                max-width: 100%;
+                font-size: clamp(12px, 3vw, 18px);
+            }
+            
+            .contact-info {
+                padding-left: 15px;
+            }
+            
+            .contact-text {
+                font-size: clamp(14px, 4vw, 20px);
+            }
+            
+            .philosophy-text {
+                font-size: clamp(12px, 3vw, 16px);
+            }
+            
+            /* 调整页脚区域布局 */
+            .flex.flex-col.md\:flex-row.justify-between.items-start.md\:items-end {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 20px;
+            }
+            
+            .flex.flex-col.md\:flex-row.justify-between.items-start.md\:items-end .text-right {
+                align-self: flex-end;
+                text-align: right;
+            }
+            
+            .contact-info {
+                border-left: none;
+                padding-left: 0;
+            }
+        }
+        
+        @media screen and (max-width: 480px) {
+            .main-title {
+                font-size: clamp(24px, 12vw, 60px);
+            }
+            
+            .description {
+                font-size: clamp(10px, 4vw, 16px);
+            }
+            
+            .contact-info {
+                padding-left: 0;
+            }
+            
+            .contact-text {
+                font-size: clamp(12px, 5vw, 18px);
+            }
+            
+            .philosophy-text {
+                font-size: clamp(10px, 4vw, 14px);
+            }
+            
+            /* 进一步调整页脚区域布局 */
+            .flex.justify-between.items-end {
+                gap: 15px;
+            }
+        }
+
+        /* 背景网格 */
+        .grid-bg {
+            position: absolute;
+            inset: 0;
+            background-image: 
+                linear-gradient(rgba(1, 1, 32, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(1, 1, 32, 0.03) 1px, transparent 1px);
+            background-size: 2.5%; /* 随容器缩放的网格 */
+            z-index: 1;
+        }
+
+        /* 字体样式 */
+        .mono {
+            font-family: 'Space Mono', monospace;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-size: clamp(10px, 0.9vw, 14px);
+            color: rgba(1, 1, 32, 0.5);
+            margin: 0;
+        }
+
+        .main-title {
+            font-size: clamp(40px, 7vw, 110px);
+            font-weight: 500;
+            letter-spacing: -0.05em;
+            line-height: 0.95;
+            color: var(--tech-blue);
+            margin: 0;
+        }
+
+        .divider {
+            width: 8%;
+            height: 1.5px;
+            background: var(--tech-blue);
+            margin: 3% 0;
+        }
+
+        .tag {
+            display: inline-flex;
+            align-items: center;
+            padding: 0.4vw 0.8vw;
+            background: rgba(1, 1, 32, 0.05);
+            border-radius: 4px;
+            font-size: clamp(9px, 0.8vw, 13px);
+            font-family: 'Space Mono', monospace;
+            margin-right: 1%;
+            color: var(--tech-blue);
+        }
+
+        .description {
+            font-size: clamp(14px, 1.5vw, 24px);
+            color: #94a3b8;
+            max-width: 45%;
+            line-height: 1.4;
+            margin: 0;
+        }
+
+        .contact-info {
+            border-left: 2px solid var(--tech-blue);
+            padding-left: 2vw;
+        }
+
+        .contact-text {
+            font-size: clamp(16px, 1.8vw, 30px);
+            font-weight: 500;
+            letter-spacing: -0.02em;
+            color: var(--tech-blue);
+            margin: 0;
+        }
+
+        .philosophy-text {
+            font-size: clamp(14px, 1.4vw, 22px);
+            font-weight: 500;
+            font-style: italic;
+            color: var(--accent-orange);
+            margin: 0;
+        }
+
+        /* 打印设置 */
+        @media print {
+            .page-container { 
+                width: 100%;
+                height: auto;
+                margin: 0; 
+                box-shadow: none; 
+                border: none; 
+            }
+        }
     </style>
 </head>
 <body>
-    <section class="hero-section">
-        <div class="hero-content">
-            <div id="canvasContainer" class="w-full h-full relative border border-[#82afd9] m-0 p-0">
-                <header class="w-full p-8 md:p-12 flex justify-between items-center relative z-10">
-                    <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 bg-cloud-midnight rounded-sm"></div>
-                        <span class="font-mono text-xs uppercase tracking-widest-tag text-cloud-midnight/60">System Ready</span>
-                    </div>
-                    <div class="font-mono text-xs uppercase tracking-widest-tag text-cloud-midnight/60">
-                        Based in China
-                    </div>
-                </header>
+    
+    <div class="page-wrapper">
+        <div class="page-container">
+            <!-- 基础装饰 -->
+            <div class="grid-bg"></div>
+            
+            <!-- 静态背景光晕 (SVG 提升 Web 渲染效率) -->
+            <svg class="absolute inset-0 w-full h-full opacity-20" style="z-index: 2;">
+                <defs>
+                    <radialGradient id="grad1" cx="90%" cy="10%" r="50%">
+                        <stop offset="0%" stop-color="#ef2cc1" />
+                        <stop offset="100%" stop-color="white" stop-opacity="0" />
+                    </radialGradient>
+                    <radialGradient id="grad2" cx="10%" cy="90%" r="50%">
+                        <stop offset="0%" stop-color="#bdbbff" />
+                        <stop offset="100%" stop-color="white" stop-opacity="0" />
+                    </radialGradient>
+                    <radialGradient id="grad3" cx="20%" cy="30%" r="30%">
+                        <stop offset="0%" stop-color="#fc4c02" stop-opacity="0.5" />
+                        <stop offset="100%" stop-color="white" stop-opacity="0" />
+                    </radialGradient>
+                </defs>
+                <rect width="100%" height="100%" fill="url(#grad1)" />
+                <rect width="100%" height="100%" fill="url(#grad2)" />
+                <rect width="100%" height="100%" fill="url(#grad3)" />
+            </svg>
 
-                <main class="flex-1 flex flex-col justify-center px-8 md:px-12 lg:px-24 max-w-7xl mx-auto w-full relative z-10">
+            <div class="relative z-10 p-6 sm:p-10 md:p-[5vw] flex flex-col">
+                <!-- Top Section -->
+                <div class="flex justify-between items-start">
+                    <div>
+                        <div class="mono mb-4 sm:mb-6 md:mb-8 text-[#ef2cc1]">! 仅用于面试参考，勿作他用</div>
+                        <div class="flex gap-2 overflow-x-auto whitespace-nowrap pb-2">
+                            <span class="tag">UX RESEARCH</span>
+                            <span class="tag">INTERFACE DESIGN</span>
+                            <span class="tag">SYSTEM ARCHITECT</span>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="mono">Based in China</div>
+                        
+                    </div>
+                </div>
+
+                <!-- Main Title Section -->
+                <div>
+                    <h1 class="main-title">
+                        张晓迪<br>
+                        <span style="color: rgba(1, 1, 32, 0.2)">UX&UI PORTFOLIO</span>
+                    </h1>
+                    <div class="divider"></div>
+                    <p class="description">
+                        在复杂性中定义体验。<br>
+                        以系统化方法构建一致且可扩展的产品设计。
+                    </p>
+                </div>
+
+                <!-- Contact Cards Section -->
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mt-8">
                     
-                    <div class="max-w-4xl relative" id="heroText">
-                        <p class="font-mono text-sm md:text-base text-cloud-pink uppercase tracking-widest-tag mb-6">
-                            Product Manager
-                        </p>
-                        
-                        <h1 class="text-5xl md:text-7xl lg:text-8xl font-medium tracking-tighter-extreme leading-[0.9] text-cloud-midnight mb-6">
-                            张晓迪
-                        </h1>
-                        <h2 class="text-3xl md:text-5xl font-medium tracking-tighter-extreme text-cloud-midnight/40 mb-12">
-                            作品集 Portfolio.
-                        </h2>
+                    <div class="glass-card rounded shadow-tech hover:shadow-tech-hover p-3 flex flex-col justify-between group cursor-pointer" onclick="copyToClipboard('18801613257', this, 'text-cloud-pink', false)">
+                        <div class="flex justify-between items-start mb-3 pointer-events-none">
+                            <span class="copy-label font-mono text-xs uppercase tracking-widest-tag text-cloud-midnight/50 group-hover:text-cloud-pink transition-colors">Phone</span>
+                            <svg class="copy-icon w-4 h-4 text-cloud-midnight/30 group-hover:text-cloud-pink transform group-hover:scale-110 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-base md:text-lg font-medium tracking-tighter-extreme text-cloud-midnight pointer-events-none">
+                            18801613257
+                        </div>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 max-w-2xl mt-4">
+                    <div class="glass-card rounded shadow-tech hover:shadow-tech-hover p-3 flex flex-col justify-between group cursor-pointer" onclick="copyToClipboard('xiaodizhangsspu@163.com', this, 'text-cloud-pink', false)">
+                        <div class="flex justify-between items-start mb-3 pointer-events-none">
+                            <span class="copy-label font-mono text-xs uppercase tracking-widest-tag text-cloud-midnight/50 group-hover:text-cloud-pink transition-colors">Email</span>
+                            <svg class="copy-icon w-4 h-4 text-cloud-midnight/30 group-hover:text-cloud-pink transform group-hover:scale-110 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
+                            </svg>
+                        </div>
+                        <div class="text-base md:text-lg font-medium tracking-tighter-extreme text-cloud-midnight pointer-events-none">
+                            xiaodizhangsspu<br/><span class="text-cloud-midnight/40 text-sm">@163.com</span>
+                        </div>
+                    </div>
+
+                </div>
+                
+                <!-- Footer Section -->
+                <div class="mt-8">
+                    <div class="flex flex-col md:flex-row justify-between items-start md:items-end gap-6">
+                        <div class="font-mono text-xs text-cloud-midnight/40 tracking-widest-tag uppercase">
+                            Interactive Resume <br>
+                            © 2026 Edition
+                        </div>
                         
-                        <div class="glass-card rounded shadow-tech hover:shadow-tech-hover p-3 flex flex-col justify-between group cursor-pointer" onclick="copyToClipboard('18801613257', this, 'text-cloud-pink', false)">
-                            <div class="flex justify-between items-start mb-3 pointer-events-none">
-                                <span class="copy-label font-mono text-xs uppercase tracking-widest-tag text-cloud-midnight/50 group-hover:text-cloud-pink transition-colors">Phone</span>
-                                <svg class="copy-icon w-4 h-4 text-cloud-midnight/30 group-hover:text-cloud-pink transform group-hover:scale-110 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="text-base md:text-lg font-medium tracking-tighter-extreme text-cloud-midnight pointer-events-none">
-                                18801613257
+                        <div class="text-right">
+                            <div class="mono mb-2">PHILOSOPHY</div>
+                            <div class="philosophy-text">
+                                DESIGNING THE FUTURE WE WANT
                             </div>
                         </div>
-
-                        <div class="glass-card rounded shadow-tech hover:shadow-tech-hover p-3 flex flex-col justify-between group cursor-pointer" onclick="copyToClipboard('xiaodizhangssspu@163.com', this, 'text-cloud-pink', false)">
-                            <div class="flex justify-between items-start mb-3 pointer-events-none">
-                                <span class="copy-label font-mono text-xs uppercase tracking-widest-tag text-cloud-midnight/50 group-hover:text-cloud-pink transition-colors">Email</span>
-                                <svg class="copy-icon w-4 h-4 text-cloud-midnight/30 group-hover:text-cloud-pink transform group-hover:scale-110 transition-all" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="square" stroke-linejoin="miter" stroke-width="1.5" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"></path>
-                                </svg>
-                            </div>
-                            <div class="text-base md:text-lg font-medium tracking-tighter-extreme text-cloud-midnight pointer-events-none">
-                                xiaodizhangssspu<br/><span class="text-cloud-midnight/40 text-sm">@163.com</span>
-                            </div>
-                        </div>
-
                     </div>
-                </main>
-
-                <footer class="w-full p-8 md:p-12 pb-0 flex justify-between items-end relative z-10">
-                    <div class="font-mono text-xs text-cloud-midnight/40 tracking-widest-tag uppercase">
-                        Product Design <br>
-                        © 2026 Edition
-                    </div>
-                    
-                    <div class="note">! 仅用于面试参考，勿作他用</div>
-                </footer>
-
+                </div>
             </div>
         </div>
-    </section>
-    
-
-    
-    <section class="section">
+        
+        <!-- 作品集内容 -->
+        <div style="width: 100%; min-height: 100vh; background-color: white; padding: 0; margin: 0;">
+        <section class="section">
         <img loading="lazy" src="src/design/LUX/LUX01.png" alt="LUX 01">
     </section>
     
@@ -613,7 +842,8 @@
         <img loading="lazy" src="src/design/page_30.png" alt="页面 30">
     </section>
     
-    <section class="footer-section">
+        <div class="footer-spacer" id="footerSpacer"></div>
+        <section class="footer-section" id="footerSection">
         <div class="footer-content">
             <div class="message">「感谢您的浏览 · 期待与您对话」</div>
             <div class="contact-details">
@@ -696,29 +926,73 @@
         
         // 确保DOM加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
-            // 初始化时检查一次
-            checkFooterPosition();
+            const heroSection = document.querySelector('.page-container');
+            const footer = document.getElementById('footerSection');
+            const spacer = document.getElementById('footerSpacer');
             
-            // 监听滚动事件
-            window.addEventListener('scroll', checkFooterPosition);
+            if (!heroSection || !footer || !spacer) return;
+            
+            // 兼容方案：同时监听 window scroll（冒泡）和 body scroll
+            window.addEventListener('scroll', checkFooterPosition, true); // capture 阶段
+            document.body.addEventListener('scroll', checkFooterPosition);
+            document.documentElement.addEventListener('scroll', checkFooterPosition);
+            
+            // 兜底：IntersectionObserver 监测 hero 可见性
+            const heroObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    checkFooterPosition();
+                });
+            }, { threshold: 0, root: null });
+            heroObserver.observe(heroSection);
+            
+            // 兜底：定时轮询（处理某些浏览器不触发 scroll 的情况）
+            let ticking = false;
+            setInterval(() => {
+                if (!ticking) {
+                    ticking = true;
+                    requestAnimationFrame(() => {
+                        checkFooterPosition();
+                        ticking = false;
+                    });
+                }
+            }, 200);
+            
+            // 初始检查
+            checkFooterPosition();
         });
         
         function checkFooterPosition() {
-            const heroSection = document.querySelector('.hero-section');
-            const footerSection = document.querySelector('.footer-section');
+            const heroSection = document.querySelector('.page-container');
+            const footer = document.getElementById('footerSection');
+            const spacer = document.getElementById('footerSpacer');
             
-            if (heroSection && footerSection) {
-                const heroBottom = heroSection.offsetTop + heroSection.offsetHeight;
-                const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-                
-                // 简化逻辑：当滚动超过首页底部时，固定页脚
-                if (scrollTop > heroBottom - 100) { // 添加一些缓冲区域
-                    footerSection.classList.add('fixed');
-                } else {
-                    footerSection.classList.remove('fixed');
-                }
+            if (!heroSection || !footer || !spacer) return;
+            
+            // 用 getBoundingClientRect 判断（视口坐标，不受滚动容器影响）
+            const heroBottom = heroSection.getBoundingClientRect().bottom;
+            const heroOutOfView = heroBottom < 0;
+            
+            // 临时移除 sticky 以获取 footer 自然位置
+            const wasSticky = footer.classList.contains('sticky');
+            if (wasSticky) {
+                footer.classList.remove('sticky');
+                spacer.classList.remove('active');
+                spacer.style.height = '0';
             }
+            
+            const footerRect = footer.getBoundingClientRect();
+            const footerInViewport = footerRect.top < window.innerHeight;
+            
+            if (heroOutOfView && !footerInViewport) {
+                // hero 已消失 + footer 自然位置不可见 → 固定在视口底部
+                const footerH = footer.offsetHeight;
+                footer.classList.add('sticky');
+                spacer.classList.add('active');
+                spacer.style.height = footerH + 'px';
+            }
+            // 否则保持正常文档流（footerInViewport 或 hero 仍可见）
         }
     </script>
+</div>
 </body>
 </html>
