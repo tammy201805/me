@@ -2,13 +2,9 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>张晓迪 - AI 产品经理作品集</title>
     
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&family=Space+Mono&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono&family=Outfit:wght@400;500;600&display=swap" rel="stylesheet">
     
     <script src="https://cdn.tailwindcss.com"></script>
     
@@ -17,8 +13,8 @@
             theme: {
                 extend: {
                     fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Space Mono', 'monospace'],
+                        sans: ['-apple-system', 'BlinkMacSystemFont', '"Segoe UI"', '"PingFang SC"', '"Microsoft YaHei"', 'sans-serif'],
+                        mono: ['ui-monospace', 'SFMono-Regular', 'Menlo', 'Consolas', 'monospace'],
                     },
                     colors: {
                         cloud: {
@@ -55,7 +51,7 @@
             width: 100%;
             height: 100%;
             background-color: #f8f8f8;
-            font-family: 'Outfit', -apple-system, sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
             overflow-x: hidden;
             overflow-y: auto;
         }
@@ -505,7 +501,7 @@
 
         /* 字体样式 */
         .mono {
-            font-family: 'Space Mono', monospace;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
             letter-spacing: 0.1em;
             text-transform: uppercase;
             font-size: clamp(10px, 0.9vw, 14px);
@@ -536,7 +532,7 @@
             background: rgba(1, 1, 32, 0.05);
             border-radius: 4px;
             font-size: clamp(9px, 0.8vw, 13px);
-            font-family: 'Space Mono', monospace;
+            font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
             margin-right: 1%;
             color: var(--tech-blue);
         }
@@ -582,12 +578,12 @@
         }
 
         /* 2023.10 至今 · 独立产品案例：沿用原页深蓝、粉色与淡紫色 */
-        .freelance-work { --case-ink: #010120; --case-muted: #626274; color: var(--case-ink); background: #fff; font-family: -apple-system, BlinkMacSystemFont, "Outfit", "PingFang SC", "Microsoft YaHei", sans-serif; }
+        .freelance-work { --case-ink: #010120; --case-muted: #626274; color: var(--case-ink); background: #fff; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif; }
         .freelance-work * { box-sizing: border-box; }
         .freelance-work a { color: inherit; text-decoration: none; }
         .freelance-work a:focus-visible, .archive-intro a:focus-visible { outline: 3px solid #ef2cc1; outline-offset: 5px; }
         .freelance-inner { max-width: 1280px; margin: 0 auto; padding: 76px 5vw 32px; }
-        .freelance-kicker { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-family: 'Space Mono', monospace; font-size: 12px; letter-spacing: .08em; color: #77778a; }
+        .freelance-kicker { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; letter-spacing: .08em; color: #77778a; }
         .freelance-kicker span:first-child { color: #b31b90; }
         .freelance-work h2 { margin: 28px 0 18px; font-size: clamp(30px, 4.3vw, 60px); line-height: 1.2; font-weight: 500; letter-spacing: -.04em; }
         .freelance-lead { max-width: 810px; font-size: 17px; line-height: 1.85; color: var(--case-muted); }
@@ -597,19 +593,19 @@
         .project-index a { display: flex; align-items: center; gap: 16px; min-height: 66px; padding: 15px 8px; border-bottom: 1px solid #dedee6; font-size: 14px; transition: background .15s; }
         .project-index a:nth-child(odd) { margin-right: 30px; }
         .project-index a:hover { background: #f6f4fb; }
-        .project-index .index-number { color: #9b9ba8; font-family: 'Space Mono', monospace; font-size: 12px; }
+        .project-index .index-number { color: #9b9ba8; font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 12px; }
         .project-index .index-arrow { margin-left: auto; color: #b31b90; }
         .index-legacy { display: inline-flex; min-height: 44px; align-items: center; gap: 12px; margin-top: 12px; font-size: 13px; color: #626274 !important; }
         .project-case { scroll-margin-top: 24px; border-top: 1px solid #dedee6; padding: 54px 0 48px; }
         .project-case:first-of-type { margin-top: 42px; }
         .case-heading { display: grid; grid-template-columns: 54px minmax(0, 1fr); gap: 16px; margin-bottom: 26px; }
-        .case-number { font-family: 'Space Mono', monospace; font-size: 19px; color: #b31b90; padding-top: 6px; }
+        .case-number { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 19px; color: #b31b90; padding-top: 6px; }
         .case-meta { display: flex; flex-wrap: wrap; gap: 8px 14px; align-items: center; font-size: 12px; line-height: 1.7; color: #747488; margin-bottom: 10px; }
         .case-status { padding: 3px 9px; border: 1px solid #d9d4ed; background: #f7f5fd; color: #514875; }
         .freelance-work h3 { font-size: clamp(23px, 2.65vw, 36px); font-weight: 500; letter-spacing: -.03em; line-height: 1.35; }
         .case-subtitle { color: #747488; font-size: 14px; margin-top: 9px; line-height: 1.8; }
         .case-columns { display: grid; grid-template-columns: .85fr 1.25fr; gap: 40px; }
-        .case-label { font-family: 'Space Mono', monospace; font-size: 11px; letter-spacing: .08em; color: #8b819e; margin-bottom: 9px; }
+        .case-label { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; font-size: 11px; letter-spacing: .08em; color: #8b819e; margin-bottom: 9px; }
         .freelance-work h4 { margin-bottom: 10px; font-size: 16px; line-height: 1.6; font-weight: 600; }
         .case-copy { font-size: 14px; line-height: 1.9; color: #555567; }
         .case-copy p + p { margin-top: 10px; }
@@ -760,7 +756,7 @@
         .hero-scroll { display:inline-flex; align-items:center; gap:8px; min-height:44px; padding:0 18px; border:1px solid rgba(1,1,32,.15); border-radius:999px; font-size:13px; color:#010120; background:rgba(255,255,255,.6); text-decoration:none; transition:background .15s,color .15s; }
         .hero-scroll:hover { background:#010120; color:#fff; }
         .case-heading { display:block; margin-bottom:28px; }
-        .case-meta .case-number { padding:0; font-size:14px; color:#b31b90; font-family:'Space Mono',monospace; margin-right:2px; }
+        .case-meta .case-number { padding:0; font-size:14px; color:#b31b90; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; margin-right:2px; }
         .project-case { padding:64px 0 56px; }
         .project-case:not(.case-compact):not(#other-products) .case-metrics { background:#faf9fc; border:1px solid #ece9f2; padding:22px 26px; border-radius:6px; }
         .case-metric strong { color:#010120; }
@@ -819,6 +815,11 @@
             .mini-preview { grid-template-columns:minmax(0,1fr) 80px;gap:12px;padding:20px 16px; }
             .mini-scan .mini-scan-code { width:80px; }
         }
+        /* 车联网长图案例：点击后在大图里滚动查看 */
+        .legacy-open { display:block;width:100%;padding:0;margin:0;border:0;background:none;cursor:zoom-in; }
+        .legacy-open:focus-visible { outline:3px solid #ef2cc1;outline-offset:-3px; }
+        .evidence-lightbox.is-long .evidence-lightbox-body { max-height:82vh;overflow:auto;-webkit-overflow-scrolling:touch;background:#fff; }
+        .evidence-lightbox.is-long img { width:max(100%,960px);max-width:none;max-height:none; }
     </style>
 </head>
 <body>
@@ -877,8 +878,8 @@
                     </h1>
                     <div class="divider"></div>
                     <p class="description">
-                        AI 产品经理 · 9 年车联网与互联网经验<br>
-                        7 年数字钥匙，独立上线 4 款产品，覆盖 RAG、Agent、工作流与评估。
+                        AI 产品经理 · 工业设计出身<br>
+                        3 年车联网产品经理，近 3 年独立产品 / 咨询工作者，打造交付 AI 产品，覆盖 RAG、Agent、工作流与评估。
                     </p>
                 </div>
 
@@ -916,8 +917,8 @@
                     <p class="mono">SELECTED WORK / 代表作</p>
                     <a href="#dk-knowledge"><strong>82%</strong><span><b>数字钥匙售后知识中心</b>RAG + AI 预诊｜前 3 根因命中率</span></a>
                     <a href="#life-agent"><strong>1.3k+</strong><span><b>生命演化模拟器</b>多模态 Agent｜单月生成视频</span></a>
-                    <a href="#other-products"><strong>4 款</strong><span><b>独立上线产品</b>Readme Craft、证件照、LUX 等</span></a>
-                    <a href="#original-cases"><strong>20+</strong><span><b>7 年数字钥匙</b>服务车企品牌｜Wiggler 0→1</span></a>
+                    <a href="#other-products"><strong>4 款</strong><span><b>独立上线产品</b>AI释梦、Readme Craft、证件照、LUX 等</span></a>
+                    <a href="#original-cases"><strong>23+</strong><span><b>7 年数字钥匙</b>服务整车品牌｜Wiggler 0→1</span></a>
                 </aside>
                 </div><!-- hero-grid -->
                 
@@ -937,12 +938,12 @@
         
 <!-- freelance-projects:start -->
 <section class="freelance-work" id="freelance-projects" aria-labelledby="freelance-title"><div class="freelance-inner">
-<div class="freelance-kicker"><span>AI PRODUCT WORK / 2023.10 — PRESENT</span><span>SELECTED PROJECTS</span></div>
+<div class="freelance-kicker"><span>INDEPENDENT WORK / 2023.10 — PRESENT</span><span>SELECTED PROJECTS</span></div>
 <h2 id="freelance-title">把行业经验，<br>做成可评测、可上线的 AI 产品。</h2>
-<p class="freelance-lead">延续 7 年数字钥匙行业积累，独立负责 AI 产品的需求定义、成功指标、RAG / Agent 方案、评测与上线，借助 Claude Code、Codex 完成全栈交付。</p>
+<p class="freelance-lead">2023 年起以独立产品人身份专注 AI 产品。5 年体验设计与 4 年车联网产品经理的积累，让我能从用户体验一路负责到需求定义、成功指标、RAG / Agent 方案、评测与上线，借助 Claude Code、Codex 完成全栈交付。</p>
 <div class="key-stats">
-<div><strong>9 年</strong><span>车联网与互联网</span></div>
-<div><strong>20+</strong><span>服务车企品牌</span></div>
+<div><strong>4 年</strong><span>车联网产品经理</span></div>
+<div><strong>3 年</strong><span>独立 AI 产品</span></div>
 <div><strong>50+</strong><span>独立咨询客户</span></div>
 <div><strong>4 款</strong><span>独立上线产品</span></div>
 </div>
@@ -950,7 +951,7 @@
 <a href="#dk-knowledge"><span class="index-number">01</span><span>数字钥匙售后知识中心<em>RAG · AI 预诊</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
 <a href="#life-agent"><span class="index-number">02</span><span>生命演化模拟器<em>多模态 Agent</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
 <a href="#llm-eval"><span class="index-number">03</span><span>LLM Eval 评估工作台<em>评估 · 发版门禁</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
-<a href="#avatar-rag"><span class="index-number">04</span><span>知应 AI 助手<em>企业与高校 · 已交付 2 家</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
+<a href="#zhiying"><span class="index-number">04</span><span>知应 AI 助手<em>企业与高校 · 已交付 2 家</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
 <a href="#other-products"><span class="index-number">05</span><span>其他 0→1 上线产品<em>小程序 · Web</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
 </nav>
 <a class="index-legacy" href="#original-cases">车联网 · 数字钥匙案例（2016–2023） <span aria-hidden="true">↓</span></a>
@@ -1011,9 +1012,9 @@
 </article>
 
 <article class="project-case case-compact" id="llm-eval" aria-labelledby="llm-eval-title">
-<div class="case-heading"><div><div class="case-meta"><span class="case-number">03</span><span class="case-status">内部自用工具</span></div><h3 id="llm-eval-title">LLM Eval 评估工作台</h3><p class="case-subtitle">从“感觉回答不错”，到有依据的版本比较与发版判断</p></div></div>
+<div class="case-heading"><div><div class="case-meta"><span class="case-number">03</span><span class="case-status">内部自用工具</span><span>2026.05</span></div><h3 id="llm-eval-title">LLM Eval 评估工作台</h3><p class="case-subtitle">从“感觉回答不错”，到有依据的版本比较与发版判断</p></div></div>
 <div class="compact-body"><div class="case-copy">
-<p>为自己的 AI 产品搭建的统一评估工具，串起 <strong>错误分析 → 失败分类 → 代码断言 → LLM 评委 → 评委校准 → 版本对比与发版门禁</strong>；换模型、改提示词后先跑回归对比，过了门禁才发版。</p>
+<p>为交付项目搭建的统一评估工具，串起 <strong>错误分析 → 失败分类 → 代码断言 → LLM 评委 → 评委校准 → 版本对比与发版门禁</strong>；换模型、改提示词后先跑回归对比，过了门禁才发版。</p>
 <ul>
 <li><strong>按失败类型选评估方式：</strong>格式、工具调用等确定性问题写成代码断言；政策一致性等主观判断交给单维度 LLM 评委。</li>
 <li><strong>评委也要被评估：</strong>用人工标签算 TPR / TNR 与置信区间校准评委，再逐题比较新旧版本，回归即阻断发版。</li>
@@ -1023,18 +1024,18 @@
 </div>
 </article>
 
-<article class="project-case case-compact" id="avatar-rag" aria-labelledby="avatar-rag-title">
-<div class="case-heading"><div><div class="case-meta"><span class="case-number">04</span><span class="case-status">已交付 · 合伙项目</span><span>2026.03</span></div><h3 id="avatar-rag-title">知应 AI 助手</h3><p class="case-subtitle">企业与高校 AI 智能助手定制（RAG）｜用机构自有资料回答高频咨询，答不了的转人工</p></div></div>
+<article class="project-case case-compact" id="zhiying" aria-labelledby="zhiying-title">
+<div class="case-heading"><div><div class="case-meta"><span class="case-number">04</span><span class="case-status">已交付</span><span>2026.03</span></div><h3 id="zhiying-title">知应 AI 助手</h3><p class="case-subtitle">企业与高校 AI 智能助手定制（RAG）｜用机构自有资料回答高频咨询，答不了的转人工</p><p class="case-subtitle">负责：产品设计 / 开发 / 交付上线</p></div></div>
 <div class="case-metrics">
-<div class="case-metric"><strong>2 家</strong><span>已交付高校 / 企业<br>招投标与线上推广获客</span></div>
+<div class="case-metric"><strong>2 家</strong><span>已交付高校 / 企业</span></div>
 <div class="case-metric"><strong>2k+ 次</strong><span>单客户累计问答量</span></div>
-<div class="case-metric"><strong>约一半</strong><span>人工咨询量下降</span></div>
+<div class="case-metric"><strong>约 50%</strong><span>人工咨询量下降</span></div>
 </div>
 <div class="compact-body"><div class="case-copy">
 <p>高校招生、校务与企业客服咨询量大、问题重复，人工答复慢、口径不一。为机构搭建专属 AI 助手，全天候自助答复，答不了的平滑转人工。</p>
 <ul>
 <li><strong>先划 AI 边界：</strong>只答“高频、有标准答案、错答代价可控”的咨询；办理、审批、个人信息查询一律转人工。</li>
-<li><strong>宁可少答，不乱答：</strong>回答必须附出处，检索不到可靠依据就明确告知；转人工时 AI 暂停应答并生成交接摘要，用户不必重复描述；各机构知识与会话隔离。</li>
+<li><strong>宁可少答，不乱答：</strong>回答可附出处，检索不到可靠依据就明确告知；转人工时 AI 暂停应答并生成交接摘要，用户不必重复描述；各机构知识与会话隔离。</li>
 <li><strong>达标才上线：</strong>用客户真实咨询问题建评测集，含资料外问题检验拒答；设准确率、拒答率两道门槛，上线后未命中与转人工问题回流补充知识库。</li>
 </ul>
 </div>
@@ -1050,16 +1051,16 @@
 <section class="project-case" id="other-products" aria-labelledby="other-title">
 <div class="case-heading"><div><div class="case-meta"><span class="case-number">05</span></div><h3 id="other-title">其他 0→1 上线产品</h3><p class="case-subtitle">均独立完成需求、设计、开发与上线</p></div></div>
 <div class="mini-grid">
-<figure class="mini-card" id="readme-craft"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/readme-home.png" data-evidence-caption="Readme Craft 首页" aria-label="放大：Readme Craft 首页"><img src="src/pm/evidence-20261015/readme-home.png" loading="lazy" decoding="async" alt="Readme Craft 首页"></button><figcaption><strong>Readme Craft</strong><p>AI 个人主页生成 Agent。输入 GitHub 账号，自动提炼项目亮点，生成、预览并部署个人主页；提供分步 Wizard 与 Agent API 双入口。分析与渲染拆分并缓存，换风格不重复调用模型，生成失败降级为确定性模板。</p><a class="case-link" href="https://aidulia.cn/" target="_blank" rel="noopener">打开在线产品 ↗</a></figcaption></figure>
-<figure class="mini-card"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/english-home.png" data-evidence-caption="英语真题卷" aria-label="放大：英语真题卷"><img src="src/pm/evidence-20261015/english-home.png" loading="lazy" decoding="async" alt="英语真题卷试卷目录"></button><figcaption><strong>英语真题卷</strong><p>考研英语练习产品。AI 只用于离线生成解析与词典，校验后入库；在线学习零 LLM 调用，兼顾内容一致性与成本。</p></figcaption></figure>
-<figure class="mini-card is-mobile has-qrcode"><div class="mini-preview"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/id-photo-home.png" data-evidence-caption="证件照微信小程序" aria-label="放大：证件照小程序"><img src="src/pm/evidence-20261015/id-photo-home.png" loading="lazy" decoding="async" alt="证件照小程序首页"></button><div class="mini-scan"><button type="button" class="mini-scan-code" data-evidence-src="src/pm/evidence-20261015/id-photo-qrcode.jpg" data-evidence-caption="证件照微信小程序 · 微信扫码体验" data-evidence-kind="qrcode" aria-label="放大：证件照小程序体验码"><img src="src/pm/evidence-20261015/id-photo-qrcode.jpg" width="258" height="258" loading="lazy" decoding="async" alt="证件照微信小程序微信小程序码"></button><span class="mini-scan-label">微信扫码体验</span></div></div><figcaption><strong>证件照微信小程序</strong><p>竞品调研定位；实测人像分割的效果与成本后选型，规格数据有据可查才上线。</p></figcaption></figure>
-<figure class="mini-card is-mobile has-qrcode"><div class="mini-preview"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/lux-home.png" data-evidence-caption="LUX 测光仪" aria-label="放大：LUX 测光仪"><img src="src/pm/evidence-20261015/lux-home.png" loading="lazy" decoding="async" alt="LUX 测光仪首页"></button><div class="mini-scan"><button type="button" class="mini-scan-code" data-evidence-src="src/pm/evidence-20261015/lux-qrcode.jpg" data-evidence-caption="LUX 测光仪 · 微信扫码体验" data-evidence-kind="qrcode" aria-label="放大：LUX 测光仪体验码"><img src="src/pm/evidence-20261015/lux-qrcode.jpg" width="258" height="258" loading="lazy" decoding="async" alt="LUX 测光仪微信小程序码"></button><span class="mini-scan-label">微信扫码体验</span></div></div><figcaption><strong>LUX 测光仪</strong><p>手机摄像头估测环境光；线性亮度空间滤波 + 校准表，解决读数漂移，用明确状态降低用户焦虑。</p></figcaption></figure>
+<figure class="mini-card" id="readme-craft"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/readme-home.png" data-evidence-caption="Readme Craft 首页" aria-label="放大：Readme Craft 首页"><img src="src/pm/evidence-20261015/readme-home.png" loading="lazy" decoding="async" alt="Readme Craft 首页"></button><figcaption><strong>Readme Craft</strong><p>AI 个人主页生成 Agent。输入 GitHub 账号，AI 自动提炼项目亮点，生成个人主页并一键部署。</p><a class="case-link" href="https://aidulia.cn/" target="_blank" rel="noopener">打开在线产品 ↗</a></figcaption></figure>
+<figure class="mini-card"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/english-home.png" data-evidence-caption="英语真题卷" aria-label="放大：英语真题卷"><img src="src/pm/evidence-20261015/english-home.png" loading="lazy" decoding="async" alt="英语真题卷试卷目录"></button><figcaption><strong>英语真题卷</strong><p>考研英语真题学习产品。AI 批改作文与翻译并给出修改反馈。</p></figcaption></figure>
+<figure class="mini-card is-mobile has-qrcode"><div class="mini-preview"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/id-photo-home.png" data-evidence-caption="证件照微信小程序" aria-label="放大：证件照小程序"><img src="src/pm/evidence-20261015/id-photo-home.png" loading="lazy" decoding="async" alt="证件照小程序首页"></button><div class="mini-scan"><button type="button" class="mini-scan-code" data-evidence-src="src/pm/evidence-20261015/id-photo-qrcode.jpg" data-evidence-caption="证件照微信小程序 · 微信扫码体验" data-evidence-kind="qrcode" aria-label="放大：证件照小程序体验码"><img src="src/pm/evidence-20261015/id-photo-qrcode.jpg" width="258" height="258" loading="lazy" decoding="async" alt="证件照微信小程序微信小程序码"></button><span class="mini-scan-label">微信扫码体验</span></div></div><figcaption><strong>证件照微信小程序</strong><p>证件照制作小程序，覆盖常用证件规格。AI 人像分割自动抠图、换底色。</p></figcaption></figure>
+<figure class="mini-card is-mobile has-qrcode"><div class="mini-preview"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/lux-home.png" data-evidence-caption="LUX 测光仪" aria-label="放大：LUX 测光仪"><img src="src/pm/evidence-20261015/lux-home.png" loading="lazy" decoding="async" alt="LUX 测光仪首页"></button><div class="mini-scan"><button type="button" class="mini-scan-code" data-evidence-src="src/pm/evidence-20261015/lux-qrcode.jpg" data-evidence-caption="LUX 测光仪 · 微信扫码体验" data-evidence-kind="qrcode" aria-label="放大：LUX 测光仪体验码"><img src="src/pm/evidence-20261015/lux-qrcode.jpg" width="258" height="258" loading="lazy" decoding="async" alt="LUX 测光仪微信小程序码"></button><span class="mini-scan-label">微信扫码体验</span></div></div><figcaption><strong>LUX 测光仪</strong><p>用手机摄像头估测环境光照度的小程序，适合大户外、室内照明等光线测量等场景。</p></figcaption></figure>
 </div>
 </section>
 </div>
 </section>
 <!-- freelance-projects:end -->
-<section class="archive-intro" id="original-cases" aria-label="车联网案例"><div><p class="case-label">AUTOMOTIVE · DIGITAL KEY / 2016–2023</p><h2>车联网 · 数字钥匙</h2><p>银基科技 7 年，服务吉利、丰田、雷克萨斯、广汽等 20+ 车企品牌。</p>
+<section class="archive-intro" id="original-cases" aria-label="车联网案例"><div><p class="case-label">AUTOMOTIVE · DIGITAL KEY / 2016–2023</p><h2>车联网 · 数字钥匙</h2><p>银基科技 7 年（2016–2019 体验设计师，2019–2023 产品经理），服务吉利、丰田、雷克萨斯、广汽等 23+ 整车品牌。</p>
 <div class="archive-stats">
 <div><strong>45+ / 150+</strong><span>Wiggler 标定系统（0→1）<br>接入车型 / 标定机型</span></div>
 <div><strong>+37% / +125%</strong><span>标定效率 / 测试效率</span></div>
@@ -1069,16 +1070,16 @@
 
         <div style="width: 100%; background-color: white; padding: 0; margin: 0;">
     <section class="section">
-        <img loading="lazy" src="src/pm/pm_02_compressed.png" alt="Wiggler 标定系统：产品设计与文档">
+        <button type="button" class="legacy-open" data-evidence-src="src/pm/pm_02_compressed.png" data-evidence-caption="Wiggler 标定系统：产品设计与文档" data-evidence-kind="long" aria-label="放大：Wiggler 标定系统"><img loading="lazy" src="src/pm/pm_02_compressed.png" alt="Wiggler 标定系统：产品设计与文档"></button>
     </section>
     <section class="section">
-        <img loading="lazy" src="src/pm/pm_03_compressed.png" alt="吉利数字钥匙：产品设计与文档">
+        <button type="button" class="legacy-open" data-evidence-src="src/pm/pm_03_compressed.png" data-evidence-caption="吉利数字钥匙：产品设计与文档" data-evidence-kind="long" aria-label="放大：吉利数字钥匙"><img loading="lazy" src="src/pm/pm_03_compressed.png" alt="吉利数字钥匙：产品设计与文档"></button>
     </section>
     <section class="section">
-        <img loading="lazy" src="src/pm/pm_04_compressed.png" alt="雷克萨斯代客保养经销商端：产品设计与文档">
+        <button type="button" class="legacy-open" data-evidence-src="src/pm/pm_04_compressed.png" data-evidence-caption="雷克萨斯代客保养经销商端：产品设计与文档" data-evidence-kind="long" aria-label="放大：雷克萨斯代客保养经销商端"><img loading="lazy" src="src/pm/pm_04_compressed.png" alt="雷克萨斯代客保养经销商端：产品设计与文档"></button>
     </section>
     <section class="section">
-        <img loading="lazy" src="src/pm/pm_05_compressed.png" alt="ReminderMe：产品设计与文档">
+        <button type="button" class="legacy-open" data-evidence-src="src/pm/pm_05_compressed.png" data-evidence-caption="ReminderMe：产品设计与文档" data-evidence-kind="long" aria-label="放大：ReminderMe"><img loading="lazy" src="src/pm/pm_05_compressed.png" alt="ReminderMe：产品设计与文档"></button>
     </section>
         </div><!-- 原有图片案例 -->
         </div><!-- page-wrapper -->
@@ -1160,10 +1161,6 @@
             document.body.removeChild(textArea);
         }
         
-        document.addEventListener('contextmenu', function(e) {
-            e.preventDefault();
-        });
-        
         // 确保DOM加载完成后执行
         document.addEventListener('DOMContentLoaded', function() {
             const heroSection = document.querySelector('.page-container');
@@ -1234,21 +1231,29 @@
         }
     </script>
 
-<dialog class="evidence-lightbox" id="evidence-lightbox" aria-labelledby="evidence-lightbox-caption"><header><p id="evidence-lightbox-caption"></p><button type="button" id="evidence-lightbox-close" aria-label="关闭大图">关闭 ×</button></header><img id="evidence-lightbox-image" alt=""></dialog>
+<dialog class="evidence-lightbox" id="evidence-lightbox" aria-labelledby="evidence-lightbox-caption"><header><p id="evidence-lightbox-caption"></p><button type="button" id="evidence-lightbox-close" aria-label="关闭大图">关闭 ×</button></header><div class="evidence-lightbox-body" id="evidence-lightbox-body"><img id="evidence-lightbox-image" alt=""></div></dialog>
 <script>
 (() => {
   const box = document.getElementById('evidence-lightbox');
   const img = document.getElementById('evidence-lightbox-image');
   const caption = document.getElementById('evidence-lightbox-caption');
+  const body = document.getElementById('evidence-lightbox-body');
   let priorOverflow = '';
   document.querySelectorAll('[data-evidence-src]').forEach(button => button.addEventListener('click', () => {
     box.classList.toggle('is-qrcode', button.dataset.evidenceKind === 'qrcode');
+    box.classList.toggle('is-long', button.dataset.evidenceKind === 'long');
+    body.scrollTop = 0;
+    body.scrollLeft = 0;
     img.src = button.dataset.evidenceSrc;
     img.alt = button.dataset.evidenceCaption;
     caption.textContent = button.dataset.evidenceCaption;
     priorOverflow = document.body.style.overflow;
     document.body.style.overflow = 'hidden';
     box.showModal();
+    if (box.classList.contains('is-long')) {
+      const center = () => { body.scrollLeft = (body.scrollWidth - body.clientWidth) / 2; };
+      img.complete ? center() : img.addEventListener('load', center, { once: true });
+    }
   }));
   document.getElementById('evidence-lightbox-close').addEventListener('click', () => box.close());
   box.addEventListener('click', event => { if (event.target === box) { const r = box.getBoundingClientRect(); if (event.clientX < r.left || event.clientX > r.right || event.clientY < r.top || event.clientY > r.bottom) box.close(); } });
