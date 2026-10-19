@@ -964,7 +964,7 @@
 <div class="case-metric"><strong>2.84s</strong><span>重排延迟 P95</span></div>
 </div>
 <p class="case-note">100 张合成工单端到端评测（含 16 张无答案单，检验拒答），DeepSeek + Jev 真实调用。</p>
-<div class="case-columns"><div><p class="case-label">CONTEXT</p><h4>背景与目标</h4><div class="case-copy"><p>数字钥匙故障横跨 BLE、NFC、UWB、手机系统与车端，排查经验散落在工单和个人记录里。二线既要快速找到相似问题，也要判断知识是否适用于当前主机厂、车型与版本。</p><p><strong>目标：</strong>给出有来源的候选根因与方案，并让关单经验持续沉淀为知识。</p></div></div><div><p class="case-label">KEY DECISIONS</p><h4>方案与取舍</h4><div class="case-copy"><ul>
+<div class="case-columns"><div><p class="case-label">CONTEXT</p><h4>背景与目标</h4><div class="case-copy"><p>数字钥匙故障横跨云端、车端与手机端，排查经验散落在工单和个人记录里。二线既要快速找到相似问题，也要判断知识是否适用于当前主机厂、车型与版本。</p><p><strong>目标：</strong>给出有来源的候选根因与方案，并让关单经验持续沉淀为知识。</p></div></div><div><p class="case-label">KEY DECISIONS</p><h4>方案与取舍</h4><div class="case-copy"><ul>
 <li><strong>不做自主 Agent，用固定流程。</strong>混合检索 → 重排 → 置信度分档；分流规则与置信度由程序计算，主机厂数据隔离由代码保证，换模型前后效果可直接对比。</li>
 <li><strong>先定门槛，再做评测。</strong>上线门槛定为前 3 命中率 ≥60%；评测集刻意放入无答案单，检验系统会不会“不懂装懂”。</li>
 <li><strong>知识治理形成闭环。</strong>知识标注适用范围、审核后发布；关单自动生成知识草稿，badcase 回流迭代。</li>
