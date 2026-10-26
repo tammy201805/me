@@ -673,6 +673,7 @@
         .evidence-hint { font-size:11px;color:#8b819e; }
         .evidence-gallery { display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px; }
         .evidence-shot { margin:0;min-width:0;border:1px solid #e5e1eb;background:#fff; }
+        .evidence-shot.is-wide { grid-column:1/-1; }
         .evidence-open { display:block;width:100%;padding:0;border:0;background:#f0edf5;cursor:zoom-in;text-align:left; }
         .evidence-open:focus-visible { outline:3px solid #ef2cc1;outline-offset:4px; }
         .evidence-open img { display:block;width:100%;height:auto;aspect-ratio:16/10;object-fit:contain; }
@@ -861,14 +862,32 @@
             .archive-docs { padding:32px 24px 20px; }
         }
         @media print { .top-nav { display:none; } }
+        /* 简历优化 2026-10 */
+        .todo { display:inline !important; background:#fff3b0; color:#7a5a00; padding:0 3px; border-radius:2px; font-style:normal; }
+        .case-type { padding:3px 9px; border:1px solid #f0c7e6; background:#fdf2fa; color:#9b257e; }
+        .case-type.is-demo { border-color:#dedee6; background:#f4f4f7; color:#626274; }
+        .type-legend { margin-top:14px; font-size:12px; line-height:1.8; color:#8a8a9a; }
+        .type-legend b { font-weight:600; color:#626274; }
+        .profile-brief { padding:48px 5vw 44px; background:#fff; color:#010120; border-top:1px solid #e4e0ed; font-family:-apple-system, 'PingFang SC', sans-serif; scroll-margin-top:72px; }
+        .profile-brief > div { max-width:1152px; margin:auto; }
+        .profile-brief h2 { font-size:clamp(22px, 2.6vw, 30px); font-weight:500; margin:8px 0 22px; }
+        .profile-grid { display:grid; grid-template-columns:1.25fr 1fr 1.25fr; gap:20px; }
+        .profile-grid > div { padding:18px 20px; background:#f6f5fa; border:1px solid #e4e0ed; border-radius:6px; }
+        .profile-grid h3 { font-size:13px; font-weight:600; color:#9b257e; margin-bottom:10px; }
+        .profile-grid ul { list-style:none; padding:0; margin:0; }
+        .profile-grid li { font-size:13px; line-height:1.75; color:#4b4b63; padding:5px 0; border-top:1px dashed #e4e0ed; }
+        .profile-grid li:first-child { border-top:0; padding-top:0; }
+        .profile-grid li > span:first-child { display:block; font-size:12px; color:#8a8a9a; font-family:ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; }
+        .profile-grid li b { font-weight:600; color:#29233a; }
+        @media(max-width:760px) { .profile-grid { grid-template-columns:minmax(0,1fr); } }
     </style>
 </head>
 <body>
     <nav class="top-nav" id="topNav" aria-label="页面导航">
         <a class="top-nav-name" href="#">张晓迪<span>AI 产品经理</span></a>
         <div class="top-nav-links">
+            <a href="#profile-brief" data-nav-target="profile-brief">履历</a>
             <a href="#freelance-projects" data-nav-target="freelance-projects">AI 项目</a>
-            <a href="#llm-eval" data-nav-target="llm-eval">评测</a>
             <a href="#other-products" data-nav-target="other-products">其他产品</a>
             <a href="#original-cases" data-nav-target="original-cases">车联网</a>
         </div>
@@ -907,7 +926,7 @@
                         <div class="mono mb-4 sm:mb-6 md:mb-8 text-[#ef2cc1]">! 仅用于面试参考，勿作他用</div>
                         <div class="hero-tags flex gap-2 flex-wrap pb-2">
                             <span class="tag">AI PRODUCT</span>
-<span class="tag">RAG · AGENT</span>
+<span class="tag">RAG · AI WORKFLOW</span>
 <span class="tag">LLM EVAL</span>
 <span class="tag">AUTOMOTIVE</span>
                         </div>
@@ -928,8 +947,8 @@
                     </h1>
                     <div class="divider"></div>
                     <p class="description">
-                        AI 产品经理 · 工业设计出身<br>
-                        3 年车联网产品经理，近 3 年独立产品 / 咨询工作者，打造交付 AI 产品，覆盖 RAG、Agent、工作流与评估。
+                        AI 产品经理 · 车联网 7 年 + 独立 AI 产品 3 年<br>
+                        7 年数字钥匙 / 车联网经验（2019–2023 任产品经理，服务 23+ 整车品牌）；2023 年起独立做产品 / 咨询，服务客户 50+。擅长把业务问题拆成可评测、成本可控的 AI 解决方案，可独立交付。
                     </p>
                 </div>
 
@@ -965,9 +984,9 @@
 
                 <aside class="hero-highlights" aria-label="代表作">
                     <p class="mono">SELECTED WORK / 代表作</p>
-                    <a href="#dk-knowledge"><strong>82%</strong><span><b>数字钥匙售后知识中心</b>RAG + AI 预诊｜前 3 根因命中率</span></a>
-                    <a href="#life-agent"><strong>1.3k+</strong><span><b>生命演化模拟器</b>多模态 Agent｜单月生成视频</span></a>
-                    <a href="#freelance-projects"><strong>4 个</strong><span><b>AI 项目从 0 到 1</b>RAG / 多模态 Agent / 评测 / 企业助手</span></a>
+                    <a href="#dk-knowledge"><strong>82%</strong><span><b>数字钥匙售后知识中心</b>AI 预诊 + RAG｜前 3 根因命中率</span></a>
+                    <a href="#zhiying"><strong>约 50%</strong><span><b>知应 AI 助手</b>RAG 助手｜人工咨询量下降 · 已交付 2 家</span></a>
+                    <a href="#life-agent"><strong>88.7%</strong><span><b>生命演化模拟器</b>短视频 Agent｜出片成功率 · 产出 500+</span></a>
                     <a href="#original-cases"><strong>23+</strong><span><b>7 年数字钥匙 · 整车品牌</b>吉利 / 丰田 / 雷克萨斯 / 广汽</span></a>
                 </aside>
                 </div><!-- hero-grid -->
@@ -986,36 +1005,51 @@
             </div>
         </div>
         
+<section class="profile-brief" id="profile-brief" aria-labelledby="profile-title"><div>
+<p class="case-label">RESUME AT A GLANCE / 履历概览</p>
+<h2 id="profile-title">履历概览</h2>
+<div class="profile-grid">
+<div><h3>工作经历</h3><ul>
+<li><span>2023.10 — 至今</span><b>独立工作者</b> · 客户项目交付 + 自研产品</li>
+<li><span>2019 — 2023</span><b>银基科技 · 产品经理</b> · 数字钥匙 / 车联网,产品覆盖云端、移动端、车端、智能手表等多种形态</li>
+<li><span>2016 — 2019</span><b>银基科技 · 体验设计师</b> · 数字钥匙产品交互与视觉</li>
+</ul></div>
+<div><h3>教育背景</h3><ul>
+<li><span>2010.09 — 2014.07</span><b>上海第二工业大学</b> · 工业设计 · 全日制本科</li>
+</ul></div>
+<div><h3>技能关键词</h3><ul>
+<li><b>AI 产品</b>：RAG · 工作流 / Agent 编排 · Prompt 工程 · LLM 评测体系 · 多模型选型与成本控制 · AI 安全</li>
+<li><b>产品基本功</b>：需求访谈 · PRD · 指标体系 · 原型与交互设计 · B 端系统</li>
+<li><b>工具</b>：Claude Code · Codex · Dify · Coze · Langfuse · Axure · Figma</li>
+</ul></div>
+</div>
+</div></section>
+
 <!-- freelance-projects:start -->
 <section class="freelance-work" id="freelance-projects" aria-labelledby="freelance-title"><div class="freelance-inner">
-<div class="freelance-kicker"><span>INDEPENDENT WORK / 2023.10 — PRESENT</span><span>SELECTED PROJECTS</span></div>
+<div class="freelance-kicker"><span>INDEPENDENT WORK / 2023.10 — PRESENT</span><span>SELECTED PROJECTS · 按代表性排序</span></div>
 <h2 id="freelance-title">从 0 到 1，<br>交付可评测、可上线的 AI 产品。</h2>
-<p class="freelance-lead">2023 年起以独立工作者身份，主导交付多个 AI 项目，覆盖车联网售后、AIGC 短视频、企业与高校知识助手和 C 端工具。从需求定义、成功指标、RAG / Agent 方案到评测与上线，借助 Claude Code、Codex 完成全栈开发。</p>
-<div class="key-stats">
-<div><strong>约 50%</strong><span>人工咨询量下降<em>知应 AI 助手 · 已交付 2 家</em></span></div>
-<div><strong>88.7%</strong><span>云端出片成功率<em>生命演化模拟器 · 单条 6–8 元</em></span></div>
-<div><strong>94%</strong><span>预诊方案正确率<em>数字钥匙知识中心 · 100 单离线评测</em></span></div>
-<div><strong>50+</strong><span>独立咨询客户<em>2023 年起 · 另有 5 款独立上线产品</em></span></div>
-</div>
+<p class="freelance-lead">2023.10 起以独立工作者身份工作：为高校、企业和内容团队交付 AI 项目，也独立上线自有产品。负责需求访谈、AI 边界与验收标准、上线后迭代；开发借助 Claude Code、Codex 完成，因此对模型能力边界、成本和工程取舍有一手判断。</p>
+<p class="type-legend"><b>客户项目</b> 为外部客户交付 · <b>自研产品</b> 自己定义、上线并运营</p>
 <nav class="project-index" aria-label="项目目录">
-<a href="#dk-knowledge"><span class="index-number">01</span><span>数字钥匙售后知识中心<em>RAG · AI 预诊</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
-<a href="#life-agent"><span class="index-number">02</span><span>生命演化模拟器<em>多模态 Agent</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
-<a href="#llm-eval"><span class="index-number">03</span><span>LLM Eval 评估工作台<em>评估 · 发版门禁</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
-<a href="#zhiying"><span class="index-number">04</span><span>知应 AI 助手<em>企业与高校 · 已交付 2 家</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
+<a href="#dk-knowledge"><span class="index-number">01</span><span>数字钥匙售后知识中心<em>客户项目 · RAG · AI 预诊</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
+<a href="#zhiying"><span class="index-number">02</span><span>知应 AI 助手<em>客户项目 · 企业与高校 RAG · 已交付 2 家</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
+<a href="#life-agent"><span class="index-number">03</span><span>生命演化模拟器<em>客户项目 · 多模态生成工作流</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
+<a href="#dream-meant"><span class="index-number">04</span><span>AI 心理释梦 · DreamMeant<em>自研产品 · ToC · 评测驱动</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
 <a href="#other-products"><span class="index-number">05</span><span>其他 AI 产品<em>Readme Craft · 英语真题卷</em></span><span class="index-arrow" aria-hidden="true">↗</span></a>
 <a class="index-auto" href="#original-cases"><span class="index-number">AUTO</span><span>车联网 · 数字钥匙<em>2016–2023 · Wiggler / 吉利 / 雷克萨斯</em></span><span class="index-arrow" aria-hidden="true">↓</span></a>
 </nav>
 
 <article class="project-case" id="dk-knowledge" aria-labelledby="dk-knowledge-title">
-<div class="case-heading"><div><div class="case-meta"><span class="case-number">01</span><span>2026.08</span></div><h3 id="dk-knowledge-title">数字钥匙售后知识中心</h3><p class="case-subtitle">AI 预诊 + RAG 知识库｜把分散的排查经验沉淀为知识库，帮二线支持快速定位故障根因</p><p class="case-subtitle">负责：需求定义 / 成功指标 / RAG 与预诊链路 / 评测 / AI 协同开发</p></div></div>
+<div class="case-heading"><div><div class="case-meta"><span class="case-number">01</span><span class="case-type">客户项目</span><span>2026.08</span></div><h3 id="dk-knowledge-title">数字钥匙售后知识中心</h3><p class="case-subtitle">AI 预诊 + RAG 知识库｜把分散的排查经验沉淀为知识库，帮二线支持快速定位故障根因</p><p class="case-subtitle">负责：需求定义 / 成功指标 / RAG 与预诊链路 / 评测 / AI 协同开发</p></div></div>
 <div class="case-metrics">
-<div class="case-metric"><strong>82%</strong><span>前 3 根因命中率<br>上线门槛 ≥60%，知识覆盖上限 84%</span></div>
-<div class="case-metric"><strong>94%</strong><span>预诊方案正确率</span></div>
-<div class="case-metric"><strong>2.84s</strong><span>重排延迟 P95</span></div>
+<div class="case-metric"><strong>82%</strong><span>前 3 根因命中率 · 离线评测<br>上线门槛 ≥60%，知识覆盖上限 84%</span></div>
+<div class="case-metric"><strong>94%</strong><span>预诊方案正确率 · 离线评测</span></div>
+<div class="case-metric"><strong>2.84s</strong><span>重排延迟 P95 · 离线评测</span></div>
 </div>
-<p class="case-note">100 张合成工单端到端评测（含 16 张无答案单，检验拒答），DeepSeek + Jev 真实调用。</p>
+<p class="case-note">以上均为离线评测：100 张合成工单端到端评测（含 16 张无答案单，检验拒答），DeepSeek + Jev 真实调用。</p>
 <div class="case-columns"><div><p class="case-label">CONTEXT</p><h4>背景与目标</h4><div class="case-copy"><p>数字钥匙故障横跨云端、车端与手机端，排查经验散落在工单和个人记录里。二线既要快速找到相似问题，也要判断知识是否适用于当前主机厂、车型与版本。</p><p><strong>目标：</strong>给出有来源的候选根因与方案，并让关单经验持续沉淀为知识。</p></div></div><div><p class="case-label">KEY DECISIONS</p><h4>方案与取舍</h4><div class="case-copy"><ul>
-<li><strong>不做自主 Agent，用固定流程。</strong>混合检索 → 重排 → 置信度分档；分流规则与置信度由程序计算，主机厂数据隔离由代码保证，换模型前后效果可直接对比。</li>
+<li><strong>不做自主 Agent，用固定流程。</strong>混合检索 → 重排 → 置信度分档；分流规则与置信度先由程序计算，后期引入决策模型接管；检索范围与主机厂数据隔离由代码保证，换模型前后效果可直接对比。</li>
 <li><strong>先定门槛，再做评测。</strong>上线门槛定为前 3 命中率 ≥60%；评测集刻意放入无答案单，检验系统会不会“不懂装懂”。</li>
 <li><strong>知识治理形成闭环。</strong>知识标注适用范围、审核后发布；关单自动生成知识草稿，badcase 回流迭代。</li>
 </ul></div></div></div>
@@ -1027,7 +1061,7 @@
 </ol>
 <p class="case-flow-note">Vue 3 工作台 → FastAPI → PostgreSQL + pgvector；离线评测复用同一条预诊链路。</p>
 </figure>
-<section class="case-evidence" aria-label="产品界面"><div class="evidence-heading"><p class="case-label">PRODUCT / 产品界面</p><span class="evidence-hint">演示数据 · 点击放大 ↗</span></div><div class="evidence-gallery">
+<section class="case-evidence" aria-label="产品界面"><div class="evidence-heading"><p class="case-label">PRODUCT / 产品界面</p><span class="evidence-hint">点击放大 ↗</span></div><div class="evidence-gallery">
 <figure class="evidence-shot"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/dk-prediagnosis.png" data-evidence-caption="AI 预诊：候选根因、知识引用与缺失材料" aria-label="放大：AI 预诊"><img src="src/pm/evidence-20261015/dk-prediagnosis.png" loading="lazy" decoding="async" alt="AI 预诊页面：三个候选根因，附知识引用、置信度分解和缺失材料清单"></button><figcaption><strong>AI 预诊：每个候选根因都有出处</strong><p>置信度可拆解；缺材料时列出对判断的影响，一键生成索要清单。</p></figcaption></figure>
 <figure class="evidence-shot"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261018/dk-dashboard-clean.png" data-evidence-caption="看板：用业务指标衡量 AI 是否有用" aria-label="放大：看板"><img src="src/pm/evidence-20261018/dk-dashboard-clean.png" loading="lazy" decoding="async" alt="看板：二线自行解决率、补资料往返次数、知识采纳率、预诊审批通过率"></button><figcaption><strong>看板：用业务指标衡量 AI 是否有用</strong><p>二线自行解决率、补资料往返、知识采纳率、预诊审批通过率。</p></figcaption></figure>
 <figure class="evidence-shot"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261018/dk-confidence-settings-clean.png" data-evidence-caption="置信度：分流规则可解释、可调参" aria-label="放大：置信度参数"><img src="src/pm/evidence-20261018/dk-confidence-settings-clean.png" loading="lazy" decoding="async" alt="置信度公式、档位权重、阈值预览"></button><figcaption><strong>置信度：分流规则可解释、可调参</strong><p>公式与阈值可见；改参数前先在评测集上验证。</p></figcaption></figure>
@@ -1035,15 +1069,38 @@
 </div></section>
 </article>
 
-<article class="project-case" id="life-agent" aria-labelledby="life-agent-title">
-<div class="case-heading"><div><div class="case-meta"><span class="case-number">02</span><span class="case-status">已交付</span><span>2026.05</span></div><h3 id="life-agent-title">生命演化模拟器</h3><p class="case-subtitle">多模态 AIGC 短视频 Agent｜文本一键生成“物体生命演化”科普短片</p><p class="case-subtitle">负责：产品定义 / 工作流与 Prompt 设计 / 评测与成本控制</p></div></div>
+<article class="project-case case-compact" id="zhiying" aria-labelledby="zhiying-title">
+<div class="case-heading"><div><div class="case-meta"><span class="case-number">02</span><span class="case-type">客户项目</span><span class="case-status">已交付 2 家</span><span>2026.03</span></div><h3 id="zhiying-title">知应 AI 助手</h3><p class="case-subtitle">企业与高校 AI 智能助手定制（RAG）｜用机构自有资料回答高频咨询，答不了的转人工</p><p class="case-subtitle">负责：需求访谈 / AI 边界与验收标准 / 产品设计 / 开发 / 交付与迭代</p></div></div>
 <div class="case-metrics">
-<div class="case-metric"><strong>1.3k+</strong><span>单月生成视频</span></div>
-<div class="case-metric"><strong>88.7%</strong><span>云端出片成功率</span></div>
+<div class="case-metric"><strong>约 50%</strong><span>人工咨询量下降</span></div>
+<div class="case-metric"><strong>2k+ 次</strong><span>单客户累计问答量</span></div>
+<div class="case-metric"><strong>2 家</strong><span>已交付</span></div>
+</div>
+<div class="compact-body"><div class="case-copy">
+<p>高校招生、校务与企业客服咨询量大、问题重复，人工答复慢、口径不一。为机构搭建专属 AI 助手，全天候自助答复，答不了的平滑转人工。</p>
+<ul>
+<li><strong>先划 AI 边界：</strong>只答“高频、有标准答案、错答代价可控”的咨询；办理、审批、个人信息查询一律转人工。</li>
+<li><strong>宁可少答，不乱答：</strong>回答可附出处，检索不到可靠依据就明确告知；转人工时 AI 暂停应答并生成交接摘要，用户不必重复描述；各机构知识与会话隔离。</li>
+<li><strong>达标才上线：</strong>用客户真实咨询问题建评测集，含资料外问题检验拒答；设资料内问题准确率、资料外问题正确拒答率两道门槛，均达标才上线。</li>
+<li><strong>上线后持续迭代：</strong>未命中与转人工问题回流补充知识库。</li>
+</ul>
+</div>
+<div class="zhiying-evidence">
+<figure class="evidence-shot"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261018/zhiying-home-institutional-copy.png" data-evidence-caption="知应官网：企业与高校 AI 助手定制服务入口" aria-label="放大：知应 AI 助手官网"><img src="src/pm/evidence-20261018/zhiying-home-institutional-copy.png" loading="lazy" decoding="async" alt="知应 AI 助手官网首页，展示企业与高校定制定位和场景入口"></button><figcaption><strong>官网：承担产品介绍与获客</strong><p>按场景说明定制能力，引导访客体验演示或联系咨询。</p></figcaption></figure>
+<figure class="evidence-shot" style="margin-top:16px"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261018/zhiying-chat-193529.png" data-evidence-caption="招生咨询场景演示（示例资料）：回答附出处，可转人工" aria-label="放大：招生咨询助手演示"><img src="src/pm/evidence-20261018/zhiying-chat-193529.png" loading="lazy" decoding="async" alt="招生咨询助手工作台，展示回答、资料来源与转人工入口"></button><figcaption><strong>回答有出处，答不了转人工</strong><p>官网演示，示例资料。</p></figcaption></figure>
+</div>
+</div>
+</article>
+
+<article class="project-case" id="life-agent" aria-labelledby="life-agent-title">
+<div class="case-heading"><div><div class="case-meta"><span class="case-number">03</span><span class="case-type">客户项目</span><span class="case-status">已交付</span><span>2026.05</span></div><h3 id="life-agent-title">生命演化模拟器</h3><p class="case-subtitle">多模态 AIGC 短视频生成工作流｜文本一键生成“物体生命演化”科普短片</p><p class="case-subtitle">负责：产品定义 / 工作流与 Prompt 设计 / 评测与成本控制</p></div></div>
+<div class="case-metrics">
+<div class="case-metric"><strong>500+</strong><span>总产出视频</span></div>
+<div class="case-metric"><strong>88.7%</strong><span>云端出片成功率<br>失败口径：生成报错</span></div>
 <div class="case-metric"><strong>6–8 元</strong><span>单条成本 · 端到端约 3 分钟</span></div>
 </div>
 <div class="case-columns"><div><p class="case-label">CONTEXT</p><h4>背景与目标</h4><div class="case-copy"><p>科普、知识类短视频与品牌溯源内容，需要人工查资料、写脚本、生成画面再剪辑。单次调用模型难以保证阶段衔接和画面一致，失败后整条重跑成本高。</p><p><strong>目标：</strong>用户输入一句话，自动完成从脚本到成片。</p></div></div><div><p class="case-label">KEY DECISIONS</p><h4>方案与取舍</h4><div class="case-copy"><ul>
-<li><strong>固定工作流 + 大模型决策点。</strong>模型只做意图识别、阶段拆分与提示词生成；流程、重试与拼接交给代码，保证可控、成本可预测。严重歧义先反问澄清。</li>
+<li><strong>不做自主 Agent：固定工作流 + 大模型决策点。</strong>模型只做意图识别、阶段拆分与提示词生成；流程、重试与拼接交给代码，保证可控、成本可预测。严重歧义先反问澄清。</li>
 <li><strong>一致性靠结构约束。</strong>全局风格与阶段提示词分离，用阶段衔接规则约束前后形态、背景与光影。</li>
 <li><strong>评测与兜底。</strong>自建评测集与回归集；单段失败只重跑该段，按视频时长分档控制单条成本，成片加 AI 生成内容标识。</li>
 </ul></div></div></div>
@@ -1061,39 +1118,30 @@
 </div></section>
 </article>
 
-<article class="project-case case-compact" id="llm-eval" aria-labelledby="llm-eval-title">
-<div class="case-heading"><div><div class="case-meta"><span class="case-number">03</span><span class="case-status">内部自用工具</span><span>2026.05</span></div><h3 id="llm-eval-title">LLM Eval 评估工作台</h3><p class="case-subtitle">从“感觉回答不错”，到有依据的版本比较与发版判断</p></div></div>
-<div class="compact-body"><div class="case-copy">
-<p>为交付项目搭建的统一评估工具，串起 <strong>错误分析 → 失败分类 → 代码断言 → LLM 评委 → 评委校准 → 版本对比与发版门禁</strong>；换模型、改提示词后先跑回归对比，过了门禁才发版。</p>
-<ul>
-<li><strong>按失败类型选评估方式：</strong>格式、工具调用等确定性问题写成代码断言；政策一致性等主观判断交给单维度 LLM 评委。</li>
-<li><strong>评委也要被评估：</strong>用人工标签算 TPR / TNR 与置信区间校准评委，再逐题比较新旧版本，回归即阻断发版。</li>
-</ul>
-</div>
-<figure class="evidence-shot"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/eval-calibration.png?v=20261016" data-evidence-caption="评委校准：混淆矩阵、TPR / TNR 与置信区间" aria-label="放大：评委校准"><img src="src/pm/evidence-20261015/eval-calibration.png?v=20261016" loading="lazy" decoding="async" alt="评委校准页：混淆矩阵与 TPR / TNR"></button><figcaption><strong>评委校准页</strong><p>截图为演示数据（电商客服场景）</p></figcaption></figure>
-</div>
-</article>
-
-<article class="project-case case-compact" id="zhiying" aria-labelledby="zhiying-title">
-<div class="case-heading"><div><div class="case-meta"><span class="case-number">04</span><span class="case-status">已交付</span><span>2026.03</span></div><h3 id="zhiying-title">知应 AI 助手</h3><p class="case-subtitle">企业与高校 AI 智能助手定制（RAG）｜用机构自有资料回答高频咨询，答不了的转人工</p><p class="case-subtitle">负责：产品设计 / 开发 / 交付上线</p></div></div>
+<article class="project-case" id="dream-meant" aria-labelledby="dream-meant-title">
+<div class="case-heading"><div><div class="case-meta"><span class="case-number">04</span><span class="case-type">自研产品</span><span class="case-status">已上线</span><span>2025.03</span></div><h3 id="dream-meant-title">AI 心理释梦 · DreamMeant</h3><p class="case-subtitle">面向英语用户的心理学视角 AI 释梦产品（ToC）</p><p class="case-subtitle">独立负责：产品定义 / AI 方案与评测 / 模型选型与成本控制 / 全栈开发上线</p><a class="case-link" href="https://dreammeant.com/" target="_blank" rel="noopener">访问产品 dreammeant.com ↗</a></div></div>
 <div class="case-metrics">
-<div class="case-metric"><strong>2 家</strong><span>已交付高校 / 企业</span></div>
-<div class="case-metric"><strong>2k+ 次</strong><span>单客户累计问答量</span></div>
-<div class="case-metric"><strong>约 50%</strong><span>人工咨询量下降</span></div>
+<div class="case-metric"><strong>60 个梦</strong><span>评测集<br>含危机、性、创伤等敏感场景</span></div>
+<div class="case-metric"><strong>100%</strong><span>危机样本识别全对<br>普通梦无误判</span></div>
+<div class="case-metric"><strong>&lt;$0.002</strong><span>单份完整报告模型成本</span></div>
 </div>
-<div class="compact-body"><div class="case-copy">
-<p>高校招生、校务与企业客服咨询量大、问题重复，人工答复慢、口径不一。为机构搭建专属 AI 助手，全天候自助答复，答不了的平滑转人工。</p>
-<ul>
-<li><strong>先划 AI 边界：</strong>只答“高频、有标准答案、错答代价可控”的咨询；办理、审批、个人信息查询一律转人工。</li>
-<li><strong>宁可少答，不乱答：</strong>回答可附出处，检索不到可靠依据就明确告知；转人工时 AI 暂停应答并生成交接摘要，用户不必重复描述；各机构知识与会话隔离。</li>
-<li><strong>达标才上线：</strong>用客户真实咨询问题建评测集，含资料外问题检验拒答；设准确率、拒答率两道门槛，上线后未命中与转人工问题回流补充知识库。</li>
-</ul>
-</div>
-<div class="zhiying-evidence">
-<figure class="evidence-shot"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261018/zhiying-home-institutional-copy.png" data-evidence-caption="知应官网：企业与高校 AI 助手定制服务入口" aria-label="放大：知应 AI 助手官网"><img src="src/pm/evidence-20261018/zhiying-home-institutional-copy.png" loading="lazy" decoding="async" alt="知应 AI 助手官网首页，展示企业与高校定制定位和场景入口"></button><figcaption><strong>官网：承担产品介绍与获客</strong><p>按场景说明定制能力，引导访客体验演示或联系咨询。</p></figcaption></figure>
-<figure class="evidence-shot" style="margin-top:16px"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261018/zhiying-chat-193529.png" data-evidence-caption="招生咨询场景演示（示例资料）：回答附出处，可转人工" aria-label="放大：招生咨询助手演示"><img src="src/pm/evidence-20261018/zhiying-chat-193529.png" loading="lazy" decoding="async" alt="招生咨询助手工作台，展示回答、资料来源与转人工入口"></button><figcaption><strong>回答有出处，答不了转人工</strong><p>官网演示，示例资料。</p></figcaption></figure>
-</div>
-</div>
+<div class="case-columns"><div><p class="case-label">CONTEXT</p><h4>背景与目标</h4><div class="case-copy"><p>符号词典只给通用释义，通用大模型回答宽泛、不稳定，且对梦中的死亡、创伤缺少安全意识。</p><p><strong>目标：</strong>扣住用户写下的梦境细节，给出有依据的心理学解读；遇到现实危机先保护用户。</p></div></div><div><p class="case-label">KEY DECISIONS</p><h4>方案与取舍</h4><div class="case-copy"><ul>
+<li><strong>Agent → 流水线 → 一次调用。</strong>先后验证对话式 Agent、五步推理流水线；单次解梦不需要多轮决策，报告形态更好评测，最终收敛为一次调用出报告。</li>
+<li><strong>评测驱动发布。</strong>代码规则检查 + LLM 评委 + 人工标注，同梦多次运行测稳定性；换模型、改提示词先跑回归，达标才发布。</li>
+<li><strong>两步法选模型。</strong>公开榜单初筛，再用自有样本对比 GLM / DeepSeek / Qwen，定主备模型、跨厂商自动切换；免费 / 付费分开设模型预算，生成失败自动退款。</li>
+</ul></div></div></div>
+<figure class="case-flow"><figcaption>核心链路 / PRODUCT FLOW</figcaption><ol>
+<li>写下梦境<small>无需注册 · 危机先分流</small></li>
+<li>免费短解读<small>约 10 秒出结果</small></li>
+<li>解锁完整报告<small>四节结构 · 结账时预生成</small></li>
+<li>阅读与保存<small>PDF 导出 · 30 天后删除原文</small></li>
+</ol>
+<p class="case-flow-note">线上与评测台共用同一条生成链路，评测结果即代表线上效果。</p>
+</figure>
+<section class="case-evidence" aria-label="DreamMeant 产品界面"><div class="evidence-heading"><p class="case-label">PRODUCT / 产品界面</p><span class="evidence-hint">首页 + 评测台 · 点击放大 ↗</span></div><div class="evidence-gallery">
+<figure class="evidence-shot"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261024/dream-home.jpg" data-evidence-caption="DreamMeant 首页" aria-label="放大：DreamMeant 首页"><img src="src/pm/evidence-20261024/dream-home.jpg" loading="lazy" decoding="async" alt="DreamMeant 首页：What your dream may be telling you，心理学视角解梦，免费开始、$4.99 完整报告、无需注册"></button><figcaption><strong>首页</strong><p>心理学视角，只给可能的含义，不做预言。</p></figcaption></figure>
+<figure class="evidence-shot"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261024/dream-eval-five-step.jpg" data-evidence-caption="解梦评测台：五步流水线验证阶段的运行记录" aria-label="放大：解梦评测台"><img src="src/pm/evidence-20261024/dream-eval-five-step.jpg" loading="lazy" decoding="async" alt="解梦评测台运行记录：每次评测的提示词与手册版本、评委版本、样本数，以及通过率、安全级别、违规数、主题一致性、每个梦费用与耗时"></button><figcaption><strong>评测台：改提示词、换模型先过这里</strong><p>图为五步流水线验证阶段：通过率、安全命中、违规数、同梦稳定性、单梦费用与耗时一屏对比。</p></figcaption></figure>
+</div></section>
 </article>
 
 
@@ -1101,11 +1149,11 @@
 <section class="project-case" id="other-products" aria-labelledby="other-title">
 <div class="case-heading"><div><div class="case-meta"><span class="case-number">05</span></div><h3 id="other-title">其他 AI 产品</h3><p class="case-subtitle">均独立完成需求、设计、开发与上线</p></div></div>
 <div class="mini-grid">
-<figure class="mini-card" id="readme-craft"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/readme-home.png" data-evidence-caption="Readme Craft 首页" aria-label="放大：Readme Craft 首页"><img src="src/pm/evidence-20261015/readme-home.png" loading="lazy" decoding="async" alt="Readme Craft 首页"></button><figcaption><strong>Readme Craft</strong><p>AI 个人主页生成 Agent。输入 GitHub 账号，AI 自动提炼项目亮点，生成个人主页并一键部署。</p><a class="case-link" href="https://aidulia.cn/" target="_blank" rel="noopener">打开在线产品 ↗</a></figcaption></figure>
+<figure class="mini-card" id="readme-craft"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/readme-home.png" data-evidence-caption="Readme Craft 首页" aria-label="放大：Readme Craft 首页"><img src="src/pm/evidence-20261015/readme-home.png" loading="lazy" decoding="async" alt="Readme Craft 首页"></button><figcaption><strong>Readme Craft</strong><p>AI 个人主页生成工具。输入 GitHub 账号，AI 自动提炼项目亮点，生成个人主页并一键部署。</p><a class="case-link" href="https://aidulia.cn/" target="_blank" rel="noopener">打开在线产品 ↗</a></figcaption></figure>
 <figure class="mini-card"><button type="button" class="evidence-open" data-evidence-src="src/pm/evidence-20261015/english-home.png" data-evidence-caption="英语真题卷" aria-label="放大：英语真题卷"><img src="src/pm/evidence-20261015/english-home.png" loading="lazy" decoding="async" alt="英语真题卷试卷目录"></button><figcaption><strong>英语真题卷</strong><p>考研英语真题学习产品。AI 批改作文与翻译并给出修改反馈。</p></figcaption></figure>
 </div>
 <div class="mini-more">
-<p><strong>另有 3 款早期 / 工具类产品已上线：</strong>AI释梦、证件照微信小程序（AI 人像分割换底色）、LUX 测光仪。</p>
+<p><strong>另有 2 款工具类产品已上线：</strong>证件照微信小程序（AI 人像分割换底色）、LUX 测光仪。</p>
 <div class="mini-more-codes">
 <button type="button" class="mini-scan-code" data-evidence-src="src/pm/evidence-20261015/id-photo-qrcode.jpg" data-evidence-caption="证件照微信小程序 · 微信扫码体验" data-evidence-kind="qrcode" aria-label="放大：证件照小程序体验码"><img src="src/pm/evidence-20261015/id-photo-qrcode.jpg" width="258" height="258" loading="lazy" decoding="async" alt="证件照微信小程序码"><span>证件照</span></button>
 <button type="button" class="mini-scan-code" data-evidence-src="src/pm/evidence-20261015/lux-qrcode.jpg" data-evidence-caption="LUX 测光仪 · 微信扫码体验" data-evidence-kind="qrcode" aria-label="放大：LUX 测光仪体验码"><img src="src/pm/evidence-20261015/lux-qrcode.jpg" width="258" height="258" loading="lazy" decoding="async" alt="LUX 测光仪小程序码"><span>LUX</span></button>
@@ -1125,7 +1173,7 @@
 <section class="archive-docs" aria-labelledby="archive-docs-title"><div>
 <p class="case-label">PRODUCT DESIGN &amp; DOCS / 原始交付物</p>
 <h3 id="archive-docs-title">产品设计 &amp; 文档说明</h3>
-<p>以下为车联网时期的原始产品交付物：需求文档、功能结构、原型与后台设计（已脱敏），点击可放大滚动查看。</p>
+<p>以下为车联网时期的部分产品交付物：需求文档、功能结构、原型与后台设计（已脱敏），点击可放大滚动查看。</p>
 <ol class="archive-docs-list"><li>Wiggler 标定系统</li><li>吉利数字钥匙</li><li>雷克萨斯代客保养经销商端</li><li>ReminderMe</li></ol>
 </div></section>
 
@@ -1329,16 +1377,34 @@
   const hero = document.querySelector('.page-container');
   if (!nav || !hero) return;
   const links = [...nav.querySelectorAll('[data-nav-target]')];
-  // 页面区块 → 高亮的导航项（知应属于 AI 项目，不应停留在“评测”）
-  const zones = [['freelance-projects', 0], ['llm-eval', 1], ['zhiying', 0], ['other-products', 2], ['original-cases', 3]]
-    .map(([id, i]) => [document.getElementById(id), i]).filter(([el]) => el);
+  // 页面区块 → 高亮的导航项（按导航顺序，与 data-nav-target 一一对应）
+  const zones = links.map((a, i) => [document.getElementById(a.dataset.navTarget), i]).filter(([el]) => el);
+  const setActive = current => links.forEach((a, i) => {
+    a.classList.toggle('is-active', i === current);
+    if (i === current) a.setAttribute('aria-current', 'location'); else a.removeAttribute('aria-current');
+  });
+  // 点击后锁定高亮，等平滑滚动结束再恢复滚动监听，避免途经其他区块时闪烁
+  let lockedUntil = 0;
   const update = () => {
     nav.classList.toggle('is-visible', hero.getBoundingClientRect().bottom < 80);
+    if (Date.now() < lockedUntil) return;
     let current = -1;
     zones.forEach(([el, i]) => { if (el.getBoundingClientRect().top < 120) current = i; });
-    links.forEach((a, i) => a.classList.toggle('is-active', i === current));
+    // 滚到页底时最后一个区块可能到不了顶部，直接高亮最后一项
+    // 页面实际在 body 上滚动（html/body 都设了 overflow），两者都检查
+    const atBottom = [document.scrollingElement, document.body].some(el => el && el.scrollTop > 0 && el.scrollTop + el.clientHeight >= el.scrollHeight - 4);
+    if (zones.length && atBottom) current = zones[zones.length - 1][1];
+    setActive(current);
   };
-  window.addEventListener('scroll', update, { capture: true, passive: true });
+  links.forEach((a, i) => a.addEventListener('click', () => {
+    setActive(i);
+    lockedUntil = Date.now() + 1000;
+    a.blur();
+  }));
+  window.addEventListener('scroll', () => {
+    if (Date.now() < lockedUntil) lockedUntil = Date.now() + 150;
+    update();
+  }, { capture: true, passive: true });
   window.addEventListener('resize', update);
   nav.querySelector('.top-nav-name').addEventListener('click', e => { e.preventDefault(); hero.scrollIntoView({ behavior: 'smooth' }); });
   update();
